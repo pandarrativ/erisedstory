@@ -1,9 +1,8 @@
 import React from 'react';
-import "../assets/css/story.css"
 import SampleAgentLeft from "../assets/imgs/sample-agent-l.svg"
 import { useNavigate } from 'react-router-dom';
 
-function NewStory(props) {
+function StoryExtraction(props) {
     const navigate = useNavigate();
     const nextPage = (e) => {
         e.preventDefault();
@@ -12,8 +11,8 @@ function NewStory(props) {
 
     return (
         <div className='main'>
-            <div className='newstory'>
-                <div className='newstory-header font-h2'>Step 1: Enter your fear description</div>
+            <div className='story-extract'>
+                <div className='newstory-header font-h2'>Step 2: Check Your Dream Analysis</div>
                 
                 <div className='story-dashbord'>
                     <textarea className='newstory-input primary-border'></textarea>
@@ -40,4 +39,4 @@ function NewStory(props) {
     );
 }
 
-export default NewStory;
+export default StoryExtraction;
