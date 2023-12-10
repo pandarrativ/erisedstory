@@ -1,8 +1,10 @@
 import React from 'react';
-import IconHome from "../assets/icons/header_home.svg";
 import "../assets/css/header.css";
 import { useNavigate } from 'react-router-dom';
 import IconLogout from "../assets/icons/Icon_logout.svg";
+import SampleProfile from "../assets/imgs/sample_profile.jpg"
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 function Header(props) {
     const navigate = useNavigate();
@@ -20,12 +22,16 @@ function Header(props) {
 
     return (
         <div className='header'>
-          <div></div>
+          <div className='header-user'>
+            <img src={SampleProfile} alt="user profile" className='header-user-profile'></img>
+            <Typography variant='c3'>User Name</Typography>
+          </div>
           <div className='header-table'>
-            <div onClick={goHomePage} className='header-table-items'>
-              <img src={IconHome} alt="icon home" className='icon-home table-icons'></img>
-              <div className='table-text'>Home</div>
-            </div>
+
+            <Button variant="contained" className='button-primary font-c3'>Home</Button>
+            <Button variant="contained" className='button-primary font-c3'>History</Button>
+            <Button variant="contained" className='button-primary font-c3'>Agent</Button>
+
 
             
           </div>

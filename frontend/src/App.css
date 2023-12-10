@@ -3,6 +3,7 @@
   --color-bg: #F7F2EC;
   --color-bar: #E5D4BD;
   --color-text: #000;
+  --color-dec: #2B788B;
 
   /* fonts */
   --font-size-h1: 3rem;
@@ -39,9 +40,25 @@ body {
 .main{
   position: absolute;
   top: 0px;
-  left: 96px;
+  left: 250px;
   height: 100%;
   min-height: 100vh;
-  width: calc(100% - 96px);
+  width: calc(100% - 250px);
   display: inline-grid;    /* work like a grid, the story page takes full height as children's heights */
+}
+
+
+/* to make img in center no matter the box size */
+.img-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.box-img{
+  min-width: 100%;
+  min-height: 100%;
+  display: block; 
+  object-fit: cover;
 }
