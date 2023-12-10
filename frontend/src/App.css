@@ -2,6 +2,7 @@
   /* colors */
   --color-bg: #F7F2EC;
   --color-bar: #E5D4BD;
+  --color-bar-dark: #996447;
   --color-text: #000;
   --color-dec: #2B788B;
 
@@ -35,6 +36,7 @@ body {
   font-size: var(--font-size-c2);
   color: var(--color-text);
   font-weight: var(--font-weight-m);
+  line-height: 2.5rem;
 }
 
 .main{
@@ -44,7 +46,7 @@ body {
   height: 100%;
   min-height: 100vh;
   width: calc(100% - 250px);
-  display: inline-grid;    /* work like a grid, the story page takes full height as children's heights */
+
 }
 
 

@@ -14,8 +14,8 @@ function Header(props) {
   
   
     const logout = () => {
-      sessionStorage.removeItem("estory-info");
-      sessionStorage.removeItem("estory-user");
+      // sessionStorage.removeItem("erised-info");
+      sessionStorage.removeItem("erised-user");
       navigate("/welcome");
     }
 

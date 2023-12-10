@@ -9,6 +9,7 @@ import Welcome from './pages/Welcome';
 import Header from './pages/Header';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import NewStory from './pages/NewStory';
 
 
 const theme = createTheme({
@@ -47,6 +48,7 @@ class App extends Component {
               <Route path='/' element={<><Header></Header><Home></Home></>}></Route>
               <Route path='/login' element={<Login></Login>}></Route>
               <Route path="/welcome" element={<Welcome></Welcome>}></Route>
+              <Route path="/new-story" element={<><Header></Header><NewStory></NewStory></>}></Route>
             </Routes>
           
           </BrowserRouter>

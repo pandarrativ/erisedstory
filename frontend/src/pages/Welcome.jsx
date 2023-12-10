@@ -15,14 +15,19 @@ function Welcome(props) {
     return (
         <div className='welcome'>
             <div className='welcome-top'>
-                <Button className='button-secondary'>Sign Up</Button>
+                <div className='welcome-title font-c2'>Erised Story</div>
+
+                <Button className='button-secondary font-c3' onClick={toggleShowLogin}>Sign Up</Button>
             </div>
             <div className='welcome-left'>
-                <div className='welcome-subheader'>Phobia Platform</div>
-                <div className='welcome-hedaer'>Erised Story of Your Fear</div>
-                <div className='welcome-description'>
-                    Using the power of narration to provide more immersive and enjoyable rumination releasing experience
+                <div className='welcome-left-top'>
+                    <div className='welcome-subheader text-dec'>Phobia Platform</div>
+                    <div className='welcome-hedaer font-h1'>Erised Story of Your Fear</div>
+                    <div className='welcome-description'>
+                        Using the power of narration to provide more immersive and enjoyable rumination releasing experience
+                    </div>
                 </div>
+                
 
                 <div className='welcome-login'>
                     {showLogin ? <Login></Login>  : <Signup></Signup>}
@@ -31,6 +36,7 @@ function Welcome(props) {
             </div>
 
             <div className='welcome-right'>
+            
                 <div className='img-box welcome-img'>
                     <img src={WelcomeImg} alt="welcom img" className='box-img'></img>
                 </div>
