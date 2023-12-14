@@ -11,6 +11,7 @@ import Header from './pages/Header';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import NewStory from './pages/NewStory';
 import StoryExtraction from './pages/StoryExtraction';
+import StoryModify from './pages/StoryModify';
 
 
 const theme = createTheme({
@@ -51,6 +52,7 @@ class App extends Component {
               <Route path="/welcome" element={<Welcome></Welcome>}></Route>
               <Route path="/new-story" element={<><Header></Header><NewStory></NewStory></>}></Route>
               <Route path="/story-extract" element={<><Header></Header><StoryExtraction></StoryExtraction></>}></Route>
+              <Route path="/story-modify" element={<><Header></Header><StoryModify></StoryModify></>}></Route>
             </Routes>
           
           </BrowserRouter>
