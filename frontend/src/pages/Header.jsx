@@ -5,6 +5,7 @@ import IconLogout from "../assets/icons/Icon_logout.svg";
 import SampleProfile from "../assets/imgs/sample_profile.jpg"
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import IconMenu from "../assets/icons/icon_menu.svg";
 
 function Header(props) {
     const navigate = useNavigate();
@@ -21,7 +22,11 @@ function Header(props) {
 
 
     return (
-        <div className='header'>
+        <div id="header" className={`header header-hidden-${props.showHeader}`}>
+          <div id='header-menu-btn'>
+            <img src={IconMenu} alt="a menu button" onClick={props.toggleShowHeader}></img>
+          </div>
+
           <div className='header-user'>
             <img src={SampleProfile} alt="user profile" className='header-user-profile'></img>
             <Typography variant='c3'>User Name</Typography>
