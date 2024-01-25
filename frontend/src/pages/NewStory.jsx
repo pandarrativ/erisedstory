@@ -13,7 +13,7 @@ function NewStory(props) {
     return (
         <div className='main'>
             <div className='newstory'>
-                <div className='newstory-header font-h2'>Step 1: Enter your fear description</div>
+                <div className='newstory-header font-h2'>Step 1: Enter your story</div>
                 
                 <div className='story-dashbord'>
                     <textarea className='newstory-input primary-border'></textarea>

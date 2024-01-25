@@ -17,7 +17,7 @@ function StoryModify(props) {
         <div className='main'> 
             <div className='story-modify'>
                 <div className='story-modify-left'>
-                    <div className='story-modify-left-title'>Fear Visualization</div>
+                    <div className='story-modify-left-title'>Bravery Visualization</div>
                     <div className='story-modify-left-body img-box primary-border'>
                         <img src={SampleImg} alt="a sample img" className='box-img'></img>
                     </div>

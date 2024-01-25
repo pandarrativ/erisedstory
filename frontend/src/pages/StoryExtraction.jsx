@@ -49,7 +49,7 @@ function StoryExtraction(props) {
     return (
         <div className='main'>
             <div className='story-extract'>
-                <div className='newstory-header font-h2'>Step 2: Check Your Fear Analysis</div>
+                <div className='newstory-header font-h2'>Step 2: Check Your Bravery Analysis</div>
                 
                 <div className='story-dashbord'>
                     <div className='story-extract-carousel'>
