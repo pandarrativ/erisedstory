@@ -44,16 +44,6 @@ button{
   cursor: pointer;
 }
 
-.main{
-  position: absolute;
-  top: 0px;
-  left: 250px;
-  height: 100%;
-  min-height: 100vh;
-  width: calc(100% - 250px);
-
-}
-
 
 /* to make img in center no matter the box size */
 .img-box{

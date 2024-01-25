@@ -1,7 +1,7 @@
 import './App.css';
 import "./assets/css/color.css";
 import "./assets/css/font.css";
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from './pages/Home';
 import Login from './components/Login';
@@ -35,31 +35,38 @@ const theme = createTheme({
 
 });
 
-class App extends Component {
-  componentDidMount() {
-    document.title = "Erised Story";
-    window.addEventListener('beforeunload', this.handleBeforeUnload);
+function App() {
+  const [showHeader, setShowHeader] = useState(true);
+  const toggleShowHeader = (e) => {
+    e.preventDefault();
+    console.log(showHeader);
+    setShowHeader(!showHeader);
   }
+
+  useEffect(() => {
+    document.title = "Erised Story";
+  }, []);
   
-  render(){
+  
+
     return (
       <>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
             <Routes>
-              <Route path='/' element={<><Header></Header><Home></Home></>}></Route>
+              <Route path='/' element={<><Header showHeader={showHeader} toggleShowHeader={toggleShowHeader}></Header><Home></Home></>}></Route>
               <Route path='/login' element={<Login></Login>}></Route>
               <Route path="/welcome" element={<Welcome></Welcome>}></Route>
-              <Route path="/new-story" element={<><Header></Header><NewStory></NewStory></>}></Route>
-              <Route path="/story-extract" element={<><Header></Header><StoryExtraction></StoryExtraction></>}></Route>
-              <Route path="/story-modify" element={<><Header></Header><StoryModify></StoryModify></>}></Route>
+              <Route path="/new-story" element={<><Header showHeader={showHeader} toggleShowHeader={toggleShowHeader}></Header><NewStory></NewStory></>}></Route>
+              <Route path="/story-extract" element={<><Header showHeader={showHeader} toggleShowHeader={toggleShowHeader}></Header><StoryExtraction></StoryExtraction></>}></Route>
+              <Route path="/story-modify" element={<><Header showHeader={showHeader} toggleShowHeader={toggleShowHeader}></Header><StoryModify></StoryModify></>}></Route>
             </Routes>
           
           </BrowserRouter>
       </ThemeProvider>
       </>
     );
-  }
+  
 }
 
 export default App;
