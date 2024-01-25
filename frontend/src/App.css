@@ -1,10 +1,10 @@
 :root{
   /* colors */
-  --color-bg: #F7F2EC;
-  --color-bar: #E5D4BD;
-  --color-bar-dark: #996447;
+  --color-bg: #fffad0;
+  --color-bar: #fff9a4;
+  --color-bar-dark: #fffc5d;
   --color-text: #000;
-  --color-dec: #2B788B;
+  --color-dec: #10cfff;
   --color-dec2: #E1EDE9;
 
   /* fonts */

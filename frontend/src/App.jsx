@@ -17,16 +17,16 @@ import StoryModify from './pages/StoryModify';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#F7F2EC',
+      main: '#dab900',
     },
     secondary: {
       main: '#E5D4BD',
     },
     button_main:{
-      main: '#BF8B70',
+      main: '#dab900',
     },
     button_reverse: {
-      main: '#2B788B'
+      main: '#10cfff'
     },
     button_light:{
       main:"#C3DCE3",
