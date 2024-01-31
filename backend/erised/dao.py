@@ -5,14 +5,14 @@ from .utils.utils import get_current_time
 
 
 class WidgetDAO:
-    collection = MongoDBUtil.get_collection(collection="erised_story_agent")
+    collection = MongoDBUtil.get_collection(collection="script_tool_agent")
 
     @staticmethod
-    def create_new_script_play_agent(user_id, play_id, agent):
+    def create_new_script_play_agent(user_id, scriptplay_id, agent):
         data = {
             "_id": str(uuid.uuid4()),
             "user_id": user_id,
-            "script_tool_script_id": play_id,
+            "script_tool_script_id": scriptplay_id,
             "agent":agent,
             "messages":[]
         }

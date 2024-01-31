@@ -21,5 +21,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("user/", include("users.urls")),
     path('api-auth/', include('rest_framework.urls')),
-    path("erised-story/", include("erised_story.urls")),
+    path("erised/", include("erised.urls")),
 ]

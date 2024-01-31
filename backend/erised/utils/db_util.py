@@ -2,8 +2,8 @@ from .db_connection import MongoConnection
 
 # Set the backend database
 class MongoDBUtil:
-    DB_NAME = "erised_story_db"
-    COLLECTION_NAME = "erised_story_play_data"
+    DB_NAME = "script_creation_tool_db"
+    COLLECTION_NAME = "script_creation_tool_script_data"
 
     @staticmethod
     def get_client():
