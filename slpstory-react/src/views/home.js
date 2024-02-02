@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Helmet } from 'react-helmet'
 
-import FeatureCard from '../components/feature-card'
+import FeatureCard1 from '../components/feature-card1'
 import Question1 from '../components/question1'
 import './home.css'
 
@@ -10,8 +10,8 @@ const Home = (props) => {
   return (
     <div className="home-container">
       <Helmet>
-        <title>Fumbling Tangible Wombat</title>
-        <meta property="og:title" content="Fumbling Tangible Wombat" />
+        <title>SLPStory</title>
+        <meta property="og:title" content="SLPStory" />
       </Helmet>
       <div className="home-header">
         <header
@@ -102,61 +102,124 @@ const Home = (props) => {
                     games and activities
                   </span>
                   <span>
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
                   </span>
                   <span>
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
                   </span>
                 </span>
               </span>
               <span>
                 <span>
                   <span>
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
                   </span>
                   <span>
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
                   </span>
                 </span>
                 <span>
                   <span>
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
                   </span>
                   <span>
-                    <span
-                      dangerouslySetInnerHTML={{
-                        __html: ' ',
-                      }}
-                    />
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
+                    <span>
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: ' ',
+                        }}
+                      />
+                    </span>
                   </span>
                 </span>
               </span>
@@ -187,83 +250,146 @@ const Home = (props) => {
                       development with these engaging features
                     </span>
                     <span>
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
                     </span>
                   </span>
                   <span>
                     <span>
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
                     </span>
                     <span>
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
                     </span>
                   </span>
                 </span>
                 <span>
                   <span>
                     <span>
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
                     </span>
                     <span>
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
                     </span>
                   </span>
                   <span>
                     <span>
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
                     </span>
                     <span>
-                      <span
-                        dangerouslySetInnerHTML={{
-                          __html: ' ',
-                        }}
-                      />
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
+                      <span>
+                        <span
+                          dangerouslySetInnerHTML={{
+                            __html: ' ',
+                          }}
+                        />
+                      </span>
                     </span>
                   </span>
                 </span>
               </span>
             </div>
             <div className="home-container03">
-              <FeatureCard
+              <FeatureCard1
                 heading="Word and Matching Games"
                 subHeading="Boost vocabulary and grammar"
-              ></FeatureCard>
-              <FeatureCard
+              ></FeatureCard1>
+              <FeatureCard1
                 heading="Role-playing"
                 subHeading="Enhances conversational skills and emotional intelligence"
-              ></FeatureCard>
-              <FeatureCard
+              ></FeatureCard1>
+              <FeatureCard1
                 heading="Puzzles and Mazes"
                 subHeading="Improve language comprehension and motor skills"
-              ></FeatureCard>
-              <FeatureCard
+              ></FeatureCard1>
+              <FeatureCard1
                 heading="Coloring"
                 subHeading="Teaches colors and actions"
-              ></FeatureCard>
+              ></FeatureCard1>
             </div>
           </div>
         </div>
@@ -290,13 +416,13 @@ const Home = (props) => {
           <div className="home-container05">
             <div className="freePricingCard home-pricing-card">
               <div className="home-container06">
-                <span className="home-text36 heading3">Free</span>
+                <span className="home-text064 heading3">Free</span>
                 <span className="bodySmall">
                   Access to limited games and activities
                 </span>
               </div>
               <div className="home-container07">
-                <span className="home-text37">
+                <span className="home-text065">
                   <span>$</span>
                   <span></span>
                 </span>
@@ -304,19 +430,19 @@ const Home = (props) => {
               </div>
               <div className="home-container08">
                 <div className="home-container09">
-                  <span className="home-text40">✔</span>
+                  <span className="home-text068">✔</span>
                   <span className="bodySmall">Word and matching games</span>
                 </div>
                 <div className="home-container10">
-                  <span className="home-text41">✔</span>
+                  <span className="home-text069">✔</span>
                   <span className="bodySmall">Vocabulary building</span>
                 </div>
                 <div className="home-container11">
-                  <span className="home-text42">✔</span>
+                  <span className="home-text070">✔</span>
                   <span className="bodySmall">Audio prompts</span>
                 </div>
                 <div className="home-container12">
-                  <span className="home-text43">✔</span>
+                  <span className="home-text071">✔</span>
                   <span className="bodySmall">Customization</span>
                 </div>
               </div>
@@ -326,38 +452,38 @@ const Home = (props) => {
             </div>
             <div className="basicPricingCard home-pricing-card1">
               <div className="home-container13">
-                <span className="home-text44 heading3">BASIC</span>
+                <span className="home-text072 heading3">BASIC</span>
                 <span className="bodySmall">
                   Access to a wider range of games and activities
                 </span>
               </div>
               <div className="home-container14">
-                <span className="home-text45">
+                <span className="home-text073">
                   <span>$</span>
                   <span></span>
                 </span>
                 <span className="home-basic-plan-pricing">9.99</span>
-                <span className="home-text48">/ month</span>
+                <span className="home-text076">/ month</span>
               </div>
               <div className="home-container15">
                 <div className="home-container16">
-                  <span className="home-text49">✔</span>
+                  <span className="home-text077">✔</span>
                   <span className="bodySmall">All features of FREE plan</span>
                 </div>
                 <div className="home-container17">
-                  <span className="home-text51">✔</span>
+                  <span className="home-text079">✔</span>
                   <span className="bodySmall">Word and matching games</span>
                 </div>
                 <div className="home-container18">
-                  <span className="home-text52">✔</span>
+                  <span className="home-text080">✔</span>
                   <span className="bodySmall">Role-playing</span>
                 </div>
                 <div className="home-container19">
-                  <span className="home-text53">✔</span>
+                  <span className="home-text081">✔</span>
                   <span className="bodySmall">Puzzles and mazes</span>
                 </div>
                 <div className="home-container20">
-                  <span className="home-text54">✔</span>
+                  <span className="home-text082">✔</span>
                   <span className="bodySmall">Coloring</span>
                 </div>
               </div>
@@ -367,7 +493,7 @@ const Home = (props) => {
             </div>
             <div className="proPricingCard home-pricing-card2">
               <div className="home-container21">
-                <span className="home-text55 heading3">
+                <span className="home-text083 heading3">
                   <span>PRO</span>
                   <br></br>
                 </span>
@@ -376,50 +502,50 @@ const Home = (props) => {
                 </span>
               </div>
               <div className="home-container22">
-                <span className="home-text58">
+                <span className="home-text086">
                   <span>$</span>
                   <span></span>
                 </span>
                 <span className="home-pro-plan-pricing">19.99</span>
-                <span className="home-text61">/ month</span>
+                <span className="home-text089">/ month</span>
               </div>
               <div className="home-container23">
                 <div className="home-container24">
-                  <span className="home-text62">✔</span>
+                  <span className="home-text090">✔</span>
                   <span className="bodySmall"> All features of BASIC plan</span>
                 </div>
                 <div className="home-container25">
-                  <span className="home-text64">✔</span>
+                  <span className="home-text092">✔</span>
                   <span className="bodySmall">Word and matching games</span>
                 </div>
                 <div className="home-container26">
-                  <span className="home-text65">✔</span>
+                  <span className="home-text093">✔</span>
                   <span className="bodySmall">Role-playing</span>
                 </div>
                 <div className="home-container27">
-                  <span className="home-text66">✔</span>
+                  <span className="home-text094">✔</span>
                   <span className="bodySmall">Puzzles and mazes</span>
                 </div>
                 <div className="home-container28">
-                  <span className="home-text67">✔</span>
+                  <span className="home-text095">✔</span>
                   <span className="bodySmall">Coloring</span>
                 </div>
                 <div className="home-container29">
-                  <span className="home-text68">✔</span>
+                  <span className="home-text096">✔</span>
                   <span className="bodySmall">
                     Enhanced vocabulary building
                   </span>
                 </div>
                 <div className="home-container30">
-                  <span className="home-text69">✔</span>
+                  <span className="home-text097">✔</span>
                   <span className="bodySmall">Audio prompts</span>
                 </div>
                 <div className="home-container31">
-                  <span className="home-text70">✔</span>
+                  <span className="home-text098">✔</span>
                   <span className="bodySmall">Rewards</span>
                 </div>
                 <div className="home-container32">
-                  <span className="home-text71">✔</span>
+                  <span className="home-text099">✔</span>
                   <span className="bodySmall">
                     Parental monitoring and guidance
                   </span>
@@ -447,61 +573,124 @@ const Home = (props) => {
                   comprehension, and motor skills in children with speech delay.
                 </span>
                 <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
                 </span>
               </span>
               <span>
                 <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
                 </span>
                 <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
                 </span>
               </span>
             </span>
             <span>
               <span>
                 <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
                 </span>
                 <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
                 </span>
               </span>
               <span>
                 <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
                 </span>
                 <span>
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: ' ',
-                    }}
-                  />
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
+                  <span>
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: ' ',
+                      }}
+                    />
+                  </span>
                 </span>
               </span>
             </span>
@@ -517,8 +706,8 @@ const Home = (props) => {
                 <span>FAQ</span>
                 <br></br>
               </span>
-              <h2 className="home-text89 heading2">Common questions</h2>
-              <span className="home-text90 bodyLarge">
+              <h2 className="home-text131 heading2">Common questions</h2>
+              <span className="home-text132 bodyLarge">
                 <span>
                   Here are some of the most common questions that we get.
                 </span>
@@ -564,7 +753,7 @@ const Home = (props) => {
           </div>
           <div className="home-separator"></div>
           <div className="home-container36">
-            <span className="bodySmall home-text93">
+            <span className="bodySmall home-text135">
               © 2023 myCompany, All Rights Reserved.
             </span>
             <div className="home-icon-group1">

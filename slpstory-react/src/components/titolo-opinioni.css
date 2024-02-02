@@ -1,0 +1,50 @@
+.titolo-opinioni-titolo-opinioni {
+  width: 670px;
+  height: 78px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.titolo-opinioni-rectangle2 {
+  top: 8px;
+  left: 10px;
+  width: 650px;
+  height: 67px;
+  position: absolute;
+  box-sizing: content-box;
+  border-radius: 15px;
+}
+.titolo-opinioni-text {
+  top: 27px;
+  left: 99px;
+  color: rgba(58, 34, 21, 1);
+  height: auto;
+  position: absolute;
+  font-size: 24px;
+  font-style: italic;
+  text-align: center;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 120.00000476837158%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.titolo-opinioni-vector {
+  top: 20px;
+  left: 27.28013038635254px;
+  width: 53px;
+  height: 43px;
+  position: absolute;
+}
+.titolo-opinioni-root-class-name {
+  top: 733px;
+  left: 224px;
+  position: absolute;
+}
+.titolo-opinioni-root-class-name1 {
+  top: 733px;
+  left: 224px;
+  position: absolute;
+}

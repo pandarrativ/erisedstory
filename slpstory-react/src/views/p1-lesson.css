@@ -1,0 +1,1277 @@
+.p1-lesson-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.p1-lesson-plot1 {
+  gap: 31px;
+  width: 100%;
+  height: 1080px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  background-color: rgba(104, 221, 255, 1);
+}
+.p1-lesson-text {
+  top: 111px;
+  left: 523px;
+  color: rgba(41, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 48px;
+  font-style: Regular;
+  text-align: center;
+  font-family: Dela Gothic One;
+  font-weight: 400;
+  line-height: 120.00000476837158%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button {
+  gap: 8px;
+  top: 916px;
+  left: 1570px;
+  width: 237px;
+  height: 48px;
+  display: flex;
+  padding: 8px 20px;
+  position: absolute;
+  box-shadow: 0px 4px 0px 0px rgba(0, 0, 0, 0.3499999940395355) ;
+  box-sizing: content-box;
+  align-items: center;
+  flex-shrink: 0;
+  border-color: rgba(255, 255, 255, 1);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 29px;
+  justify-content: center;
+  background-color: rgba(191, 139, 112, 1);
+}
+.p1-lesson-text02 {
+  color: rgba(255, 255, 255, 1);
+  height: auto;
+  font-size: 18px;
+  font-style: SemiBold;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 600;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-column {
+  gap: 10px;
+  top: 240px;
+  left: 99px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content {
+  top: 8.5px;
+  left: 76px;
+  width: 399px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text04 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text06 {
+  top: -1px;
+  left: 18px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button01 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column01 {
+  gap: 10px;
+  top: 240px;
+  left: 1277px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content01 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar01 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image01 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content01 {
+  top: 8.5px;
+  left: 76px;
+  width: 107px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text07 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text09 {
+  top: -1px;
+  left: 18px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button02 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right01 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column02 {
+  gap: 10px;
+  top: 395px;
+  left: 99px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content02 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar02 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image02 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content02 {
+  top: 8.5px;
+  left: 76px;
+  width: 125px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text10 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text12 {
+  top: -1px;
+  left: 18px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button03 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right02 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column03 {
+  gap: 10px;
+  top: 395px;
+  left: 688px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content03 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar03 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image03 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content03 {
+  top: 8.5px;
+  left: 76px;
+  width: 122px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text13 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text15 {
+  top: -1px;
+  left: 18px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button04 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right03 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column04 {
+  gap: 10px;
+  top: 395px;
+  left: 1277px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content04 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar04 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image04 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content04 {
+  top: 8.5px;
+  left: 76px;
+  width: 66px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text16 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text18 {
+  top: -1px;
+  left: 18px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button05 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right04 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column05 {
+  gap: 10px;
+  top: 545px;
+  left: 1277px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content05 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar05 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image05 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content05 {
+  top: 8.5px;
+  left: 76px;
+  width: 122px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text19 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text21 {
+  top: -1px;
+  left: 18px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button06 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right05 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column06 {
+  gap: 10px;
+  top: 545px;
+  left: 99px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content06 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar06 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image06 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content06 {
+  top: 8.5px;
+  left: 76px;
+  width: 98px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text22 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text24 {
+  top: -1px;
+  left: 18px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button07 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right06 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column07 {
+  gap: 10px;
+  top: 545px;
+  left: 688px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content07 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar07 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image07 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content07 {
+  top: 8.5px;
+  left: 76px;
+  width: 200px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text25 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text27 {
+  top: -1px;
+  left: 18px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button08 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right07 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column08 {
+  gap: 10px;
+  top: 695px;
+  left: 1277px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content08 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar08 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image08 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content08 {
+  top: -0.5px;
+  left: 76px;
+  width: 414px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text28 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text33 {
+  top: -1px;
+  left: 8px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button09 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right08 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column09 {
+  gap: 10px;
+  top: 695px;
+  left: 99px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content09 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar09 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image09 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content09 {
+  top: 8.5px;
+  left: 76px;
+  width: 132px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text35 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text37 {
+  top: -1px;
+  left: 9px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button10 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right09 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column10 {
+  gap: 10px;
+  top: 695px;
+  left: 688px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content10 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar10 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image10 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content10 {
+  top: 8.5px;
+  left: 76px;
+  width: 148px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text39 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text41 {
+  top: -1px;
+  left: 12px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button11 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right10 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.p1-lesson-column11 {
+  gap: 10px;
+  top: 240px;
+  left: 688px;
+  width: 544px;
+  height: 115px;
+  display: flex;
+  padding: 17px 32px 26px;
+  position: absolute;
+  flex-grow: 1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 23px;
+  background-color: rgba(255, 255, 255, 1);
+}
+.p1-lesson-content11 {
+  gap: 32px;
+  top: 27px;
+  left: 32px;
+  width: 232px;
+  display: flex;
+  position: absolute;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-avatar11 {
+  gap: 20px;
+  width: 232px;
+  height: 56px;
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.p1-lesson-avatar-image11 {
+  top: 0px;
+  left: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  box-sizing: content-box;
+  border-color: rgba(201, 176, 121, 1);
+  border-style: solid;
+  border-width: 1px;
+}
+.p1-lesson-avatar-content11 {
+  top: 8.5px;
+  left: 76px;
+  width: 145px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.p1-lesson-text43 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 30px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-text45 {
+  top: -1px;
+  left: 18px;
+  color: rgba(40, 24, 15, 1);
+  height: auto;
+  position: absolute;
+  font-size: 36px;
+  font-style: Medium;
+  text-align: left;
+  font-family: Roboto Serif;
+  font-weight: 500;
+  line-height: 150%;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.p1-lesson-button12 {
+  gap: 8px;
+  display: flex;
+  box-sizing: content-box;
+  align-items: center;
+  justify-content: center;
+}
+.p1-lesson-icon-chevron-right11 {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
