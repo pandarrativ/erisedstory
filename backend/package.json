@@ -5,10 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "set-port": "node -e \"process.platform === 'win32' ? process.env.PORT = 4000 : process.env.PORT = 4000\"",
-    "dev": "npm run set-port && nodemon --exec ts-node server.ts"
+    "dev": "nodemon --exec ts-node server.ts"
   },
-  "proxy": "http://localhost:4000",
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,6 +19,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   }
 }
