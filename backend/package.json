@@ -1,0 +1,26 @@
+{
+  "name": "kids-story-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "set-port": "node -e \"process.platform === 'win32' ? process.env.PORT = 4000 : process.env.PORT = 4000\"",
+    "dev": "npm run set-port && nodemon --exec ts-node server.ts"
+  },
+  "proxy": "http://localhost:4000",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.19",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
