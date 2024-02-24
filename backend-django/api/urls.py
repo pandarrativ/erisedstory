@@ -3,7 +3,7 @@ from .views import *
 
 
 urlpatterns = [
-    path("new-scriptplay", NewScriptPlayApiView.as_view()),
+    path("new-storyplay", NewScriptPlayApiView.as_view()),
     path("storyplay", GPTApiView.as_view()),
     path("conversation", ConversationGPTApiView.as_view()),
     path("storyplay-info", UserStoryPlayView.as_view()),
