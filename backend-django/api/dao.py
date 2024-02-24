@@ -1,13 +1,10 @@
 from .utils.db_util import MongoDBUtil
 import uuid
 from .utils.utils import get_current_time
-from .modes.mode import get_mode_settings
 
 
 # scripts
-from .scripts.ShantaramConfig import Shantaram
 from .scripts.HarryPotterConfig import HarryPotter
-from .scripts.WitcherConfig import Witcher
 from .scripts.ThreeBodyConfig import ThreeBody
 
 

@@ -3,8 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import redirect
 from .service.gpt import GptAPI
-from .service.dalle import DalleAPI
-from .dao import ScriptPlayDAO, WidgetDAO, SurveyDAO
+from .dao import ScriptPlayDAO
 import openai
 
 

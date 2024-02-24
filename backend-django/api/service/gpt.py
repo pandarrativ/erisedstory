@@ -2,17 +2,12 @@ import openai
 from ..scripts.script_util import PromptTemplate
 from dotenv import load_dotenv
 import os
-from .dalle import DalleAPI
 import datetime
-from ..dao import ScriptPlayDAO,WidgetDAO
+from ..dao import ScriptPlayDAO 
 from ..utils.utils import *
-from ..utils.image_util import *
-from ..scripts.WidgetSettings import WidgetSetting
 
 # scripts
-from ..scripts.ShantaramConfig import Shantaram
 from ..scripts.HarryPotterConfig import HarryPotter
-from ..scripts.WitcherConfig import Witcher
 from ..scripts.ThreeBodyConfig import ThreeBody
 
 
