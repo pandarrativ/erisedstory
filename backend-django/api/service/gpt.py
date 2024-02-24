@@ -18,57 +18,9 @@ from ..scripts.ThreeBodyConfig import ThreeBody
 
 
 class GptAPI:
-    # load local parameters
-    load_dotenv()
-    client = openai.AzureOpenAI(
-        api_key = os.getenv("OPENAI_API_KEY"),
-        api_version = os.getenv("OPENAI_API_VERSION"),
-        azure_endpoint = os.getenv("OPENAI_API_ENDPOINT"),
-    )
-    
- ##############################################################################################################################################
- ## Below are the functions to set openai model parameters and send to openai
- ##############################################################################################################################################
-    @staticmethod
-    def send_prompt(prompt, model = "gpt-35-turbo", is_json=False):
-        if is_json:
-            response = OpenAIAPI.client.chat.completions.create(
-                model= model, # model = "deployment_name".
-                response_format={ "type": "json_object" },
-                messages=[{"role": "user", "content": prompt}]
-            )
-        else:
-            response = OpenAIAPI.client.chat.completions.create(
-                model= model, # model = "deployment_name".
-                messages=[{"role": "user", "content": prompt}]
-            )
-        
-        resp =response.choices[0].message.content
-        return resp
-
-    @staticmethod
-    def send_messages(messages, model = "gpt-35-turbo", is_json=False):
-        if is_json:
-            response = OpenAIAPI.client.chat.completions.create(
-                model= model, 
-                response_format={ "type": "json_object" },
-                messages=messages
-            )
-        else:
-            response = OpenAIAPI.client.chat.completions.create(
-                model= model, 
-                messages=messages
-            )
-        
-        resp =response.choices[0].message.content
-        return resp
-
  ##############################################################################################################################################
  ## Below are the functions to for the main function
  ##############################################################################################################################################
- 
-
-
     """
     prompt state: 
         0: ask for a story description
@@ -85,12 +37,12 @@ class GptAPI:
 
         # set prompt script
         Script_class = HarryPotter
-        # if script_name == "Shantaram":
-        #     Script_class = Shantaram
-        # elif script_name == "Witcher":
-        #     Script_class = Witcher
-        # elif script_name == "ThreeBody":
-        #     Script_class = ThreeBody
+        if script_name == "Shantaram":
+            Script_class = Shantaram
+        elif script_name == "Witcher":
+            Script_class = Witcher
+        elif script_name == "ThreeBody":
+            Script_class = ThreeBody
             
         username = Script_class.username
 
@@ -234,50 +186,11 @@ class GptAPI:
         formatted_time = current_time.strftime("%H:%M")
         res = {"resp":resp, "time":formatted_time}
         return res
-    
-    @staticmethod
-    def widgetGPT(req):
-        script_name, messages, scriptplay_agent_id,widget_name = req["script_name"], req["messages"],  req["scriptplay_agent_id"], req["widget_name"]
-        
-        messages = WidgetSetting.prepare_messages(messages=messages, script_name=script_name,widget_name=widget_name)
-        resp = GptAPI.send_messages(messages=messages)
-
-        WidgetDAO.add_script_play_agent_messages(scriptplay_agent_id, {"role":"user", "content":req["new_message"]})
-        WidgetDAO.add_script_play_agent_messages(scriptplay_agent_id, {"role":"assistant", "content":resp})
-        return resp
-    
-
-    @staticmethod
-    def widgetToastGPT(req):
-        script_name, messages, scriptplay_agent_id,widget_name, prompt = req["script_name"], req["messages"],  req["scriptplay_agent_id"], req["widget_name"], req['prompt']
-        
-        messages = WidgetSetting.prepare_toast_messages(messages=messages, script_name=script_name,widget_name=widget_name, prompt=prompt)
-        resp = GptAPI.send_messages(messages=messages)
-        WidgetDAO.add_script_play_agent_messages(scriptplay_agent_id, {"role":"assistant", "content":resp}, type="toast",order = req["order"])
-        return resp
-    
-    @staticmethod
-    def widget_helper(req):
-        resp = GptAPI.send_messages(messages=req["messages"])
-        return resp
-    
 
     @staticmethod
     def summarize_prompt(req):
         resp = GptAPI.send_prompt(PromptTemplate.summarize_prompt(req["prompt"]))
         return resp
-
-    @staticmethod
-    def chatGPT_groupchat(req):
-        resp = GptAPI.send_prompt(PromptTemplate.get_groupchat_bg(
-            username=req["username"],
-            script = req['script'],
-            character_list=req["character_list"],
-            messages=req["messages"],
-            chat_background=req["chat_background"]
-        ))
-        res = parse_ask_character_to_json(resp)
-        return res
 
 
 
