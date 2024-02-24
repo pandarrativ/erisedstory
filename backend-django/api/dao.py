@@ -42,7 +42,12 @@ class ScriptPlayDAO:
             "scriptplay_id":inserted_id, 
             "script":script,
             "user_name":Script_class.username,
-            "first_story":Script_class.first_story,
+            "data":  {
+                    "story":story,
+                    "type":"story-description",
+                    "order":1,
+                    "timestamp":get_current_time(),
+                },
             }
         return res
     

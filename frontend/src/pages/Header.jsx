@@ -10,15 +10,15 @@ import IconMenu from "../assets/icons/icon_menu.svg";
 function Header(props) {
     const navigate = useNavigate();
     const goHomePage = () => {
-        navigate("/");
+        navigate("/home");
     }
   
   
-    const logout = () => {
-      // sessionStorage.removeItem("erised-info");
-      sessionStorage.removeItem("erised-user");
-      navigate("/welcome");
-    }
+    // const logout = () => {
+    //   // sessionStorage.removeItem("erised-info");
+    //   sessionStorage.removeItem("erised-user");
+    //   navigate("/welcome");
+    // }
 
 
     return (
@@ -33,15 +33,12 @@ function Header(props) {
           </div>
           <div className='header-table'>
 
-            <Button variant="contained" className='button-primary font-c3'>Home</Button>
-            <Button variant="contained" className='button-primary font-c3'>History</Button>
-            <Button variant="contained" className='button-primary font-c3'>Agent</Button>
-
+            <Button variant="contained" className='button-primary font-c3' onClick={goHomePage}>Home</Button>
 
             
           </div>
     
-          <button className="log-out" onClick={logout}><img src={IconLogout} alt="icon logout"></img></button>
+          <button className="log-out" onClick={() => {}}><img src={IconLogout} alt="icon logout"></img></button>
         </div>
     );
 }

@@ -1,27 +1,40 @@
 import React from "react";
 import IconBookMark from "../assets/icons/script_bookmark.svg";
-import IconStar from "../assets/icons/script_star.svg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../assets/css/storycard.css";
+import { newStoryPlayRouter } from "../config/routeConfig";
+import { useDispatch, useSelector } from 'react-redux';
+import {storyActions} from "../redux/StorySlice";
 
 const StoryCard = (props) => {
+    // temporaly used, better stored in cookie/localstorage
+    const user_id = useSelector((state) => state.user.user_id);
+    const dispatch = useDispatch();
+
     const navigate = useNavigate();
     const nextPage = (e) => {
         e.preventDefault();
-
-        // axios.post(scriptInfoRouter, {
-        //     script:props.title,
-        //     user_id:JSON.parse(sessionStorage.getItem("simulife-user"))._id,
-        // })
-        // .then((resp) => {
-        //     // console.log(resp.data);
-        //     sessionStorage.setItem("script-details", JSON.stringify(resp.data));
-        //     navigate("/script-description");
-        // })
-        // .catch((e) => {
-        //     alert(e);
-        // })
+        
+        console.log("asd")
+        axios.post(newStoryPlayRouter, {
+            script:props.title,
+            user_id:user_id,
+        })
+        .then((resp) => {
+            dispatch(storyActions.initStoryPlay({
+                storyPlayId:resp.data.storyPlayId,
+                story:resp.data.script,
+                atagonist:resp.data.user_name,
+                nextTask: "ASK_STORY",
+                pages:1,
+                data:resp.data.data,
+            }))
+            navigate("/story-page");
+        })
+        .catch((e) => {
+            alert(e);
+        })
     }
 
 

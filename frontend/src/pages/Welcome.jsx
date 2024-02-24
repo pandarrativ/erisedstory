@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "../assets/css/welcome.css"
 import WelcomeImg from "../assets/imgs/welcome.png"
-import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 
 function Welcome(props) {
     const navigate = useNavigate();
-    const [showLogin, setShowLogin] = useState(true);
-
 
     return (
         <div className='welcome'>

@@ -1,15 +1,15 @@
 import React from 'react';
 import "../assets/css/home.css";
 import HomeBG from "../assets/imgs/home_bg.png";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import { storyList } from '../config/scriptinfo';
 import StoryCard from '../components/StoryCard';
 
 function Home(props) {
-    const navigate = useNavigate();
-    const newStory = () => {
-        navigate("/story-page")
-    }
+    // const navigate = useNavigate();
+    // const newStory = () => {
+    //     navigate("/story-page")
+    // }
 
 
     return (

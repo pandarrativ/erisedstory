@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import redirect
-from .service.gpt import GptAPI
+from .services.story_service import *
 from .dao import ScriptPlayDAO
 import openai
 
@@ -21,7 +21,7 @@ class NewScriptPlayApiView(APIView):
 class GPTApiView(APIView):
     def post(self, request, format=None):
         try:
-            resp = GptAPI.storyGPT(request.data)
+            resp = storyGPT_generation(request.data)
             return Response(resp, status=status.HTTP_200_OK)
         except openai.error.RateLimitError:
                 return Response("OpenAI rate limited", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -33,7 +33,7 @@ class GPTApiView(APIView):
 class ConversationGPTApiView(APIView):
     def post(self, request, format=None):
         try:
-            resp = GptAPI.chatGPT_conversation(request.data)
+            resp = chatGPT_conversation(request.data)
             return Response(resp, status=status.HTTP_200_OK)
         except openai.error.RateLimitError:
                 return Response("OpenAI rate limited", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
@@ -64,7 +64,7 @@ class UserStoryPlayView(APIView):
 class SummarizePromptView(APIView):
      def post(self, request, format=None):
         try:
-            resp = GptAPI.summarize_prompt(request.data)
+            resp = summarize_prompt(request.data)
             return Response(resp, status=status.HTTP_200_OK)
         except openai.error.RateLimitError:
                 return Response("OpenAI rate limited", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
