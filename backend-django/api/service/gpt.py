@@ -22,26 +22,22 @@ class GptAPI:
  ## Below are the functions to for the main function
  ##############################################################################################################################################
     """
-    prompt state: 
-        0: ask for a story description
-        1: ask for three options
-        2: ask for character
-        3: ask for story description after options
-        4: ask for story description after conversation
+    TASK: 
+        ASK_STORY: ask for a story description
+        ASK_DECISION_MAKING: ask for decision making and three options
+        ASK_CONVERSATION: ask for character
+        CONTINUE_DECISION_MAKING: ask for story description after options
+        END_CONVERSATION: ask for story description after conversation
     """
     @staticmethod
     def storyGPT(req):
         # script name is not being used so far
-        script_name, prompt_state, prompt, scriptplay_id, order = req["script_name"], req["prompt_state"], req["prompt"], req["scriptplay_id"], req["order"]
-        print("state",prompt_state)
+        script_name, task, prompt, scriptplay_id, order = req["script_name"], req["task"], req["prompt"], req["scriptplay_id"], req["order"]
+        print("task",task)
 
         # set prompt script
         Script_class = HarryPotter
-        if script_name == "Shantaram":
-            Script_class = Shantaram
-        elif script_name == "Witcher":
-            Script_class = Witcher
-        elif script_name == "ThreeBody":
+        if script_name == "ThreeBody":
             Script_class = ThreeBody
             
         username = Script_class.username
@@ -60,7 +56,7 @@ class GptAPI:
         
 
         # ask for story
-        if prompt_state == "0":
+        if task == "ASK_STORY":
             try:
                 resp = GptAPI.send_prompt(prompt = prompt+ " "+  PromptTemplate.ask_story(username))
                 res = parse_to_json(resp)
@@ -75,11 +71,11 @@ class GptAPI:
 
             #store data
             # ScriptPlayDAO.insert_story_description(scriptplay_id, order, res["story"], res["img"])
-            # ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, event_type="story-description",data = res)
+            ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, data_type="story-description",data = res)
             return res
         
         # ask for options
-        elif prompt_state == "1":
+        elif task == "ASK_DECISION_MAKING":
             try:
                 resp = GptAPI.send_prompt(prompt + " " + PromptTemplate.ask_options(username))
                 res = parse_to_json(resp)
@@ -94,13 +90,11 @@ class GptAPI:
 
 
             #store data
-            # ScriptPlayDAO.insert_story_description(scriptplay_id, order, res["story"], res["img"])
-            # ScriptPlayDAO.create_options(scriptplay_id, order+1, res["question"], res["option_1"], res["option_2"], res["option_3"])
-            # ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, event_type="generate-options",data = res)
+            ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, event_type="decision-making",data = res)
             return res
         
         # ask for character
-        elif prompt_state == "2":
+        elif task == "ASK_CONVERSATION":
             try:
                 resp = GptAPI.send_prompt(prompt + " " + PromptTemplate.ask_character(username))
                 res = parse_ask_character_to_json(resp)
@@ -108,7 +102,7 @@ class GptAPI:
                 resp = GptAPI.send_prompt(prompt + " " + PromptTemplate.ask_character(username))
                 res = parse_ask_character_to_json(resp)
             
-            res["chat_background"] = PromptTemplate.get_chat_background(username, res["character_name"], res["character_personality"], prompt)
+            res["chat_background"] = PromptTemplate.get_chat_background(username, res["character_name"], res["character_description"], prompt)
             # res["avatar"] = get_random_avatar()
             # # generate img
             # ###############################################################################
@@ -122,13 +116,11 @@ class GptAPI:
             # res["img"] = get_image(Script_class=Script_class)
             
             #store data
-            # ScriptPlayDAO.insert_story_description(scriptplay_id, order, res["story"], res["img"])
-            # ScriptPlayDAO.start_conversation(scriptplay_id, order+1, res["character_name"], res["character_personality"], res["chat_background"], res["first_sentence"])
-            # ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, event_type="generate-character",data = res)
+            ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, data_type="conversation",data = res)
             return res
         
         #continue options
-        elif prompt_state == "3":
+        elif task == "CONTINUE_DECISION_MAKING":
             try:
                 resp = GptAPI.send_prompt(prompt + " " +PromptTemplate.continue_options(username, req["choice"]))
                 res = parse_to_json(resp)
@@ -145,13 +137,13 @@ class GptAPI:
             #store data
             # ScriptPlayDAO.choose_option(scriptplay_id, order, req["choice"])
             # ScriptPlayDAO.insert_story_description(scriptplay_id, order, res["story"], res["img"])
-            # ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, event_type="continue-options",data = res)
-            # ScriptPlayDAO.add_option_choice(object_id=scriptplay_id, order=order-1,choice=req["choice"])
+            ScriptPlayDAO.add_option_choice(object_id=scriptplay_id, order=order-1,choice=req["choice"])
+            ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, data_type="story-description",data = res)
             return res
         
 
         # continue story after conversation
-        elif prompt_state == "4":
+        elif task == "END_CONVERSATION":
             # make a summary of conversation
             messages, character_name = req["messages"], req["character_name"]
             try:
@@ -171,8 +163,8 @@ class GptAPI:
             #store data
             # ScriptPlayDAO.insert_story_description(scriptplay_id, order, res["story"], res["img"])
             # ScriptPlayDAO.end_convseration(scriptplay_id, order)
-            # ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, event_type="continue-character",data = res)
-            # ScriptPlayDAO.add_character_conversation(object_id = scriptplay_id, order = order-1,messages = messages)
+            ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, data_type="story-description",data = res)
+            ScriptPlayDAO.add_character_conversation(object_id = scriptplay_id, order = order-1,messages = messages)
             return res
         
     
