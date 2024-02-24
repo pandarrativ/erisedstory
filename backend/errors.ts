@@ -13,6 +13,7 @@ const ERRORS = {
 
 };
 
+// TODO: this is for frontend message mapping
 const MESSAGES = {
   [ERRORS.ROLE_REQUIRED]: "Role is required",
   [ERRORS.EMAIL_REQUIRED]: "Email is required",
@@ -23,7 +24,7 @@ const MESSAGES = {
   [ERRORS.PASSWORDS_MISMATCH]: "Passwords do not match",
   [ERRORS.EMAIL_IN_USE]: "Email already registered",
   [ERRORS.EMAIL_NOT_REGISTERED]: "Email not registered",
-  [ERRORS.ACCESS_FORBIDDEN]: "accessForbidden",
+  [ERRORS.ACCESS_FORBIDDEN]: "Access denied",
 };
 
 export default ERRORS;
