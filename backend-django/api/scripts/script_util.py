@@ -9,7 +9,6 @@ class PromptTemplate:
     
         Desired format:
         {{    
-            keywords: <comma_separated_list_of_key_words> 
             story: 
         }}""".format(username=username)
 
@@ -19,8 +18,6 @@ class PromptTemplate:
         
         Desired format:
         {{    
-            keywords: <comma_separated_list_of_key_words>
-            story: 
             question:
             option_1:
             option_2:
@@ -33,7 +30,6 @@ class PromptTemplate:
 
         Desired format:
         {{    
-            keywords: <comma_separated_list_of_key_words>
             story:
         }}""".format(username=username,choice=choice)
 
@@ -43,33 +39,17 @@ class PromptTemplate:
         
         Desired format:
         {{    
-            keywords: <comma_separated_list_of_key_words> 
-            story: 
             character_name:
             character_description:
-            character_personality:
-            relationship:
             first_sentence: 
-            post_1: %content%
-            post_2: %content%
-            post_3: %content% 
         }}""".format(username=username)
 
-    # @staticmethod
-    # def continue_conversation():
-    #     return """"Using the preceding story, generate next storyline with 3 to 5 story-relevant keywords in 70 words. Present the outcome in JSON format with the following structure:
-
-    # Desired format:
-    # keywords: <comma_separated_list_of_key_words>
-    # story: 
-    # """
-
     @staticmethod
-    def get_chat_background(username, character_name, personality, prompt):
-        return """You are a role playing agent. Now you should play the character: {character_name}. The user will be: {username}. You job is to have a conversation with {username} as if you are the {character_name} in the following story. This is your personnality {personality}. Your response should be less than 30 words. The following is the story background of how {username} meet {character_name} in {username}'s view:
+    def get_chat_background(username, character_name, character_description, prompt):
+        return """You are a role playing agent. Now you should play the character: {character_name}. The user will be: {username}. You job is to have a conversation with {username} as if you are the {character_name} in the following story. This is your personnality {character_description}. Your response should be less than 30 words. The following is the story background of how {username} meet {character_name} in {username}'s view:
         
         Backgroud Story:
-        {prompt}""".format(username = username, character_name=character_name, personality=personality, prompt=prompt)
+        {prompt}""".format(username = username, character_name=character_name, character_description=character_description,  prompt=prompt)
     
 
     @staticmethod
@@ -82,48 +62,8 @@ class PromptTemplate:
 
         Desired format:
         {{ 
-            keywords: <comma_separated_list_of_key_words>
             story: 
         }}""".format(username=username, conversation=str([PromptTemplate.map_messages(message, character_name, username) for message in messages[1:]]))
-
-    @staticmethod
-    def ask_groupchat(username): 
-        return """Using the preceding story, generate next storyline with 3 to 5 story-relevant keywords in 70 words in second person's view. Include a group conversation involving 3 to 5 characters for {username} to converse with and specify each character's relationship to {username}. Exclude {username} from the list. For each character, provide a brief 30-word description and personality traits. Also, include an first sentence for the conversation, spoken by a character other than  {username}. Present the results in JSON format as follows:
-        
-        Example format:
-        {{
-            keywords: <comma_separated_list_of_key_words>
-            story: 
-            character_list: 
-                [{{"character_name":"Ron", "relationship":"friend to Harry", description:"A young good man", "personality":"humerous"}},
-                {{"character_name":"Hermone", "relationship":"friend to Harry", description:"A smart wizard", "personality":"warm, nice"}},
-                ]
-            first_sentence: {{"speaker":"Ron", "content":"Hi, Harry"}} 
-        }}""".format(username = username)
-
-    @staticmethod    
-    def get_groupchat_bg(username, script, character_list, messages, chat_background):
-        return """You are an AI conversation agent facilitating a role-play scenario. The user, referred to as '{username}', is part of a narrative outlined in '{script}'. They interact with various characters listed here: '{character_list}'. Based on the existing dialogue '{messages}' and the context provided by '{chat_background}', continue the conversation by generating responses for at least one character from the list. Note that you are not creating responses for '{username}'. Exclude previous dialogue. Format the AI-generated character responses in JSON, following this example structure:
-        
-        Example format:
-        {{
-            conversations: 
-                [
-                    {{"speaker":"Ron", "content":"Hi, harry. This is Hermione."}},
-                    {{"speaker":"Hermione", "content":"Nice to meet you, Harry."}},
-                ]
-        }}""".format(username = username, script=script, character_list=str(character_list), messages=str(messages), chat_background=chat_background)
-
-    @staticmethod
-    def end_groupchat(messages, username):
-        return """This is the group conversation {username} had with the characters in the story: {conversation}. Using the preceding story and conversation, generate next storyline with 3 to 5 story-relevant keywords in 70 words in second person's view. Present the outcome in JSON format with the following structure:
-
-    Desired format:
-    {{
-        keywords: <comma_separated_list_of_key_words>
-        story: 
-    }}""".format(username=username, conversation=str(messages))
-
 
 
     # summarize
