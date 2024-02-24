@@ -25,7 +25,7 @@ TASK:
     END_CONVERSATION: ask for story description after conversation
 """
 
-def storyGPT(req):
+def storyGPT_generation(req):
     # script name is not being used so far
     script_name, task, prompt, scriptplay_id, order = req["script_name"], req["task"], req["prompt"], req["scriptplay_id"], req["order"]
     print("task",task)
