@@ -71,7 +71,7 @@
     gap: 30px;
 }
 /* left */
-.story-page-left{
+.story-page-left-1{
     height: calc(100% - 100px);
     width: 60%;
 }
@@ -85,7 +85,7 @@
 }
 
 /* right */
-.story-page-right{
+.story-page-right-1{
     height: calc(100% - 100px);
     width: 40%;
 }
@@ -98,7 +98,7 @@
 }
 
 /* right type -1 */
-.story-page-right-type1{
+.right-type1-body{
     position: relative;
     height: 100%;
     padding: 50px 20px 20px 20px;
