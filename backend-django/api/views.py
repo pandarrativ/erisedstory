@@ -14,8 +14,8 @@ class NewScriptPlayApiView(APIView):
         try:
             res = ScriptPlayDAO.create_new_script_play(request.data["user_id"] ,script=request.data["script"])
             return Response(res, status=status.HTTP_200_OK)
-        except openai.error.RateLimitError:
-                return Response("OpenAI rate limited", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+                return Response(e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 # api for generate story/decision making/conversation
 class GPTApiView(APIView):
@@ -23,10 +23,7 @@ class GPTApiView(APIView):
         try:
             resp = storyGPT_generation(request.data)
             return Response(resp, status=status.HTTP_200_OK)
-        except openai.error.RateLimitError:
-                return Response("OpenAI rate limited", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         except Exception as e:
-            print(e)
             return Response(e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 # to chat during the conversation
@@ -35,10 +32,7 @@ class ConversationGPTApiView(APIView):
         try:
             resp = chatGPT_conversation(request.data)
             return Response(resp, status=status.HTTP_200_OK)
-        except openai.error.RateLimitError:
-                return Response("OpenAI rate limited", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         except Exception as e:
-            print(e)
             return Response(e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
                
 # find all, find one of storyplay
@@ -66,8 +60,5 @@ class SummarizePromptView(APIView):
         try:
             resp = summarize_prompt(request.data)
             return Response(resp, status=status.HTTP_200_OK)
-        except openai.error.RateLimitError:
-                return Response("OpenAI rate limited", status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         except Exception as e:
-            print(e)
             return Response(e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

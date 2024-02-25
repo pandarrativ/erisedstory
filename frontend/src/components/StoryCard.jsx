@@ -22,12 +22,14 @@ const StoryCard = (props) => {
             user_id:user_id,
         })
         .then((resp) => {
+            // console.log(resp.data);
+
             dispatch(storyActions.initStoryPlay({
-                storyPlayId:resp.data.storyPlayId,
+                scriptplay_id:resp.data.scriptplay_id,
                 story:resp.data.script,
                 atagonist:resp.data.user_name,
                 nextTask: "ASK_STORY",
-                pages:1,
+                pages:resp.data.pages,
                 data:resp.data.data,
             }))
             navigate("/story-page");
