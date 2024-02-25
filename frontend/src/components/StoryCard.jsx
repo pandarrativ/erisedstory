@@ -16,7 +16,6 @@ const StoryCard = (props) => {
     const nextPage = (e) => {
         e.preventDefault();
         
-        console.log("asd")
         axios.post(newStoryPlayRouter, {
             script:props.title,
             user_id:user_id,

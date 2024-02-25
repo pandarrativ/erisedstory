@@ -43,12 +43,6 @@ def storyGPT_generation(req):
         prompt = PromptTemplate.wrap_prompt_head(prompt=req["summary"]) + prompt
         
     
-    ##############################################3##################33
-    # First image, disable in children system
-    # first_story_image = Script_class.first_story_image
-    ###################################################################
-    
-
     # ask for story
     if task == "ASK_STORY":
         try:
@@ -65,7 +59,6 @@ def storyGPT_generation(req):
         ###############################################################################
 
         #store data
-        # ScriptPlayDAO.insert_story_description(scriptplay_id, order, res["story"], res["img"])
         ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, data = res)
         return res
     
@@ -100,19 +93,7 @@ def storyGPT_generation(req):
         
         res["type"] = "conversation"
         
-        res["chat_background"] = PromptTemplate.get_chat_background(username, res["character_name"], res["character_description"], prompt)
-        # res["avatar"] = get_random_avatar()
-        # # generate img
-        # ###############################################################################
-        # # generate img
-        # # img = DalleAPI.generateImg(res["story"])
-        # res["sm_bg_img"] = "/sample/sample_sm_bg.png"
-
-        # for image, i in zip(get_random_post_imgs(), [1,2,3]):
-        #     res["post_image_" + str(i)] = image
-        # ###############################################################################
-        # res["img"] = get_image(Script_class=Script_class)
-        
+    
         #store data
         ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order,data = res)
         return res
@@ -144,6 +125,7 @@ def storyGPT_generation(req):
     elif task == "END_CONVERSATION":
         # make a summary of conversation
         messages, character_name = req["messages"], req["character_name"]
+
         try:
             resp = OpenAIAPI.send_prompt(prompt + " " + PromptTemplate.end_conversation(messages,character_name, username))
             res = parse_to_json(resp)
@@ -160,22 +142,17 @@ def storyGPT_generation(req):
 
 
         #store data
-        # ScriptPlayDAO.insert_story_description(scriptplay_id, order, res["story"], res["img"])
-        # ScriptPlayDAO.end_convseration(scriptplay_id, order)
         ScriptPlayDAO.add_gameplay_data(object_id = scriptplay_id, order = order, data = res)
         ScriptPlayDAO.add_character_conversation(object_id = scriptplay_id, order = order-1,messages = messages)
         return res
     
 
 def chatGPT_conversation(req):
-    resp = OpenAIAPI.send_messages(messages=req["prompt"])
-
-    # Get the current time
-    current_time = datetime.datetime.now()
-    # formatted_time = current_time.strftime("%Y-%m-%d %H:%M:%S")
-    formatted_time = current_time.strftime("%H:%M")
-    res = {"resp":resp, "time":formatted_time}
-    return res
+    username, prompt, messages, character_name, character_description = req["username"], req["prompt"], req["messages"],req["character_name"], req["character_description"] 
+    chat_background = PromptTemplate.get_chat_background(username, character_name, character_description, prompt)
+    messages.insert(0, {"role":"system", "content":chat_background})
+    resp = OpenAIAPI.send_messages(messages=messages)
+    return resp
 
 def summarize_prompt(req):
     resp = OpenAIAPI.send_prompt(PromptTemplate.summarize_prompt(req["prompt"]))

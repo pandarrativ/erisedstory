@@ -9,9 +9,9 @@ import AudioCurrentIcon from "../assets/icons/audio.svg";
 import Dinasour from "../assets/icons/dinasour.png";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { storyRouter } from "../config/routeConfig";
+import { conversationRouter, storyRouter } from "../config/routeConfig";
 import { storyActions } from "../redux/StorySlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 function Storypage() {
@@ -35,6 +35,7 @@ function Storypage() {
         setSelectedChoice(n);
     }
     const [messages, setMessages] = useState([]);
+    const [userMsg, setUserMsg] = useState("");
 
 
     /* 
@@ -60,7 +61,8 @@ function Storypage() {
             })
             .then((resp) => {
                 // You can change next task to conversation/decision/story here
-                dispatch(storyActions.addStoryPlayData({data:resp.data, nextTask:"ASK_DECISION_MAKING"}));
+                // dispatch(storyActions.addStoryPlayData({data:resp.data, nextTask:"ASK_DECISION_MAKING"}));
+                dispatch(storyActions.addStoryPlayData({data:resp.data, nextTask:"ASK_CONVERSATION"}));
             })
             .catch((e) => alert(e));
         // 2.
@@ -112,6 +114,7 @@ function Storypage() {
             })
             .then((resp) => {
                 dispatch(storyActions.addStoryPlayData({data:resp.data, nextTask:"END_CONVERSATION"}));
+                setMessages([{role:"assistant", content:resp.data.first_sentence}]);
             })
             .catch((e) => alert(e));
         // 5.
@@ -127,6 +130,8 @@ function Storypage() {
                 character_name: atagonist,
             })
             .then((resp) => {
+                // clean messages
+                setMessages([]);
                 dispatch(storyActions.addStoryPlayData({data:resp.data, nextTask:"ASK_DECISION_MAKING"}));
             })
             .catch((e) => alert(e));
@@ -242,7 +247,6 @@ function Storypage() {
           "type": "conversation",
           "order": 1,
           "timestamp": "2024-02-24T20:52:59.070248",
-          chat_background: ""
 
           //below only shows in history data
           messages [{role:assistant, content:""},{role:user, content:""]
@@ -258,9 +262,10 @@ function Storypage() {
                     <div className="left-type-3-msg">
                         <div className="type-3-msg-avatar ">
                             <img src={ConversationAvator} alt="a chat bot"></img>
+                            <div className="ch-name font-size-1">{dataShown.character_name}</div>
                         </div>
                         <div className="type-3-msg-body bubble bubble-bottom-left">
-                           <p className="scrobar-1">{dataShown.first_sentence}</p>
+                           <p className="scrobar-1">{messages.length > 0 ? messages[messages.length - 1].content: ""}</p>
                         </div>
                     </div>
                 </div>
@@ -268,9 +273,10 @@ function Storypage() {
                 <div className="story-page-right story-page-right-3">
                     <div className="right-type3-body boder-1 bg-color-blue-2">
                         <div className="font-size-2-5 right-type1-title font-bold">Talk</div>
-                        <div className="font-size-2 right-type1-content scrobar-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus pariatur aut quo, laudantium ratione hic veniam asperiores deserunt animi iusto nihil perspiciatis non ipsam, dolorem doloremque quos vero. Eos, explicabo.</div>
+                        {/* <div className="font-size-2 right-type1-content scrobar-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus pariatur aut quo, laudantium ratione hic veniam asperiores deserunt animi iusto nihil perspiciatis non ipsam, dolorem doloremque quos vero. Eos, explicabo.</div> */}
+                        <input className="font-size-2 right-type1-content scrobar-1" type="text" value={userMsg} onChange={(e) => setUserMsg(e.target.value)}></input>
                         <div className="right-type3-audio">
-                            <button >
+                            <button onClick={chat}>
                                 <img src={AudioIcon} alt="click button for audio input"></img>
                             </button>
                         </div>
@@ -295,7 +301,26 @@ function Storypage() {
         }
     }
 
+    
+    // user input and send to chat
+    const chat = () =>{
+        let newMessages = messages;
+        newMessages.push({role:"user", content:userMsg});
 
+        axios.post(conversationRouter, {
+            username: atagonist,
+            prompt: getStoryPrompt(),
+            character_name:storyPlayData[pages -1].character_name,
+            character_description:storyPlayData[pages -1].character_description,
+            messages: newMessages,
+        })
+        .then((resp) => {
+            // console.log(resp.data);
+            setUserMsg("");
+            setMessages([...messages, {role:"assistant", content:resp.data}])
+        })
+        .catch((e) => alert(e));
+    }
 
 
 

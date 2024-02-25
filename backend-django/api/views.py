@@ -26,7 +26,7 @@ class GPTApiView(APIView):
         except Exception as e:
             return Response(e, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-# to chat during the conversation
+# to chat with characters during the conversation
 class ConversationGPTApiView(APIView):
     def post(self, request, format=None):
         try:
