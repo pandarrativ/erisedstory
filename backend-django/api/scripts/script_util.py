@@ -48,8 +48,8 @@ class PromptTemplate:
     def get_chat_background(username, character_name, character_description, prompt):
         return """You are a role-playing agent. Now you should play the character: {character_name}. The user will be: {username}. Your job is to have a conversation with {username} as if you are the {character_name} in the following story. This is your role description: {character_description}. Your response should be less than 15 words and simple. The following is the story background of how {username} meets {character_name}:
         
-        Backgroud Story:
-        {prompt}""".format(username = username, character_name=character_name, character_description=character_description,  prompt=prompt)
+    Backgroud Story:
+        {{{prompt}}}""".format(username = username, character_name=character_name, character_description=character_description,  prompt=prompt)
     
 
     @staticmethod
