@@ -6,7 +6,7 @@ import ThreeBodyProfile from "../assets/imgs/threebody/WenjieYe.png"
 
 
 
-export const scripts = [
+export const storyList = [
     {
         title:"HarryPotter",
         script_name:"Harry Potter",
@@ -25,10 +25,10 @@ export const scripts = [
     },
 ]
 
-export const getBackground = (script) => {
-    if(script === "HarryPotter"){
+export const getBackground = (story) => {
+    if(story === "HarryPotter"){
         return HarryPotterBG;
-    }else if(script === "ThreeBody"){
+    }else if(story === "ThreeBody"){
         return ThreeBodyBG;
     }
 }

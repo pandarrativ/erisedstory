@@ -42,14 +42,19 @@ class ScriptPlayDAO:
             "scriptplay_id":inserted_id, 
             "script":script,
             "user_name":Script_class.username,
-            "first_story":Script_class.first_story,
+            "pages": 1,
+            "data":  {
+                    "story":story,
+                    "type":"story-description",
+                    "order":1,
+                    "timestamp":get_current_time(),
+                },
             }
         return res
     
 
     @staticmethod
-    def add_gameplay_data(object_id, order, data_type, data):
-        data["type"] = data_type
+    def add_gameplay_data(object_id, order, data):
         data["order"] = order
         data["timestamp"] = get_current_time()
         query = {"_id": object_id}  
