@@ -98,7 +98,6 @@ def storyGPT_generation(req):
             resp = OpenAIAPI.send_prompt(prompt + " " + PromptTemplate.ask_character(username))
             res = parse_ask_character_to_json(resp)
         
-        print(res)
         res["type"] = "conversation"
         
         res["chat_background"] = PromptTemplate.get_chat_background(username, res["character_name"], res["character_description"], prompt)
