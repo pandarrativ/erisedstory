@@ -47,7 +47,7 @@ function Storypage() {
     */
 
     const continueStory = () => {
-        console.log(nextTask);
+        // console.log(nextTask);
         // 1.
         if(nextTask === "ASK_STORY"){
             axios.post(storyRouter, {
@@ -111,7 +111,6 @@ function Storypage() {
                 summary:"N/A",
             })
             .then((resp) => {
-                console.log(resp.data);
                 dispatch(storyActions.addStoryPlayData({data:resp.data, nextTask:"END_CONVERSATION"}));
             })
             .catch((e) => alert(e));
@@ -128,7 +127,6 @@ function Storypage() {
                 character_name: atagonist,
             })
             .then((resp) => {
-                console.log(resp.data);
                 dispatch(storyActions.addStoryPlayData({data:resp.data, nextTask:"ASK_DECISION_MAKING"}));
             })
             .catch((e) => alert(e));
@@ -287,7 +285,6 @@ function Storypage() {
     }
 
     const renderPage = () => {
-        console.log(storyPlayData)
         let dataShown = storyPlayData[storyPlayData.length -1]; // replace last page with currentPage
         if(dataShown.type === "story-description"){
             return renderPageStory(dataShown);
