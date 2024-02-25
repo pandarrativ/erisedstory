@@ -7,6 +7,7 @@ import { newStoryPlayRouter } from "../config/routeConfig";
 import { useDispatch, useSelector } from 'react-redux';
 import {storyActions} from "../redux/StorySlice";
 
+
 const StoryCard = (props) => {
     // temporaly used, better stored in cookie/localstorage
     const user_id = useSelector((state) => state.user.user_id);

@@ -3,8 +3,7 @@ import StoryImg from "../assets/imgs/home_bg.png";
 import DecisionImg from "../assets/imgs/sample_fear.png";
 import ConversationImg from "../assets/imgs/conversation.jpg";
 import ConversationAvator from "../assets/imgs/con-bot.png";
-import AudioIcon from "../assets/icons/audio-fill.svg";
-import AudioCurrentIcon from "../assets/icons/audio.svg";
+import SendIcon from "../assets/icons/send.svg";
 
 import Dinasour from "../assets/icons/dinasour.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,6 +11,7 @@ import axios from "axios";
 import { conversationRouter, storyRouter } from "../config/routeConfig";
 import { storyActions } from "../redux/StorySlice";
 import { useEffect, useState } from "react";
+import SpeechButton from "../components/SpeechButton";
 
 
 function Storypage() {
@@ -35,7 +35,15 @@ function Storypage() {
         setSelectedChoice(n);
     }
     const [messages, setMessages] = useState([]);
-    const [userMsg, setUserMsg] = useState("");
+    // const [userMsg, setUserMsg] = useState("");
+
+    // for audio input
+    const [transcript, setTranscript] = useState('');
+
+    const handleTranscript = (text) => {
+      console.log(text); 
+      setTranscript(text);
+    };
 
 
     /* 
@@ -272,12 +280,12 @@ function Storypage() {
 
                 <div className="story-page-right story-page-right-3">
                     <div className="right-type3-body boder-1 bg-color-blue-2">
-                        <div className="font-size-2-5 right-type1-title font-bold">Talk</div>
-                        {/* <div className="font-size-2 right-type1-content scrobar-1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus pariatur aut quo, laudantium ratione hic veniam asperiores deserunt animi iusto nihil perspiciatis non ipsam, dolorem doloremque quos vero. Eos, explicabo.</div> */}
-                        <input className="font-size-2 right-type1-content scrobar-1" type="text" value={userMsg} onChange={(e) => setUserMsg(e.target.value)}></input>
+                        <div className="font-size-2-5 right-type3-title font-bold">Talk</div>
+                        <div className="font-size-2 right-type3-content scrobar-1">{transcript}</div>
                         <div className="right-type3-audio">
+                            <SpeechButton onTranscript={handleTranscript}></SpeechButton>
                             <button onClick={chat}>
-                                <img src={AudioIcon} alt="click button for audio input"></img>
+                                <img src={SendIcon} alt="click button to send audio input"></img>
                             </button>
                         </div>
                     </div>
@@ -302,10 +310,17 @@ function Storypage() {
     }
 
     
-    // user input and send to chat
+    //  send to user audio to chat with character
     const chat = () =>{
+        // check null
+        if(!transcript){
+            alert(`Let's say something to chat with ${storyPlayData[pages -1].character_name}`);
+            return
+        }
+
+
         let newMessages = messages;
-        newMessages.push({role:"user", content:userMsg});
+        newMessages.push({role:"user", content:transcript});
 
         axios.post(conversationRouter, {
             username: atagonist,
@@ -316,7 +331,7 @@ function Storypage() {
         })
         .then((resp) => {
             // console.log(resp.data);
-            setUserMsg("");
+            setTranscript("");
             setMessages([...messages, {role:"assistant", content:resp.data}])
         })
         .catch((e) => alert(e));

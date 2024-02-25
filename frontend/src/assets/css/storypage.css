@@ -263,10 +263,17 @@
     flex-direction: column;
     gap: 30px;
 }
+.right-type3-content{
+    flex-grow: 1;
+    overflow: auto;
+}
+
+
 .right-type3-audio{
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 30px;
 }
 .right-type3-audio button{
     border: 2px #333 solid;
