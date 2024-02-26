@@ -1,9 +1,6 @@
-///TODO: delete id field
-// import { v4 as uuid } from "uuid";
 import mongoose, { Schema } from "mongoose";
 
 export interface User extends Document {
-  _id: string;
   email: string;
   hashedPassword: string;
   username: string;
@@ -12,12 +9,6 @@ export interface User extends Document {
 }
 
 const UserSchema = new Schema({
-  // id: {
-  //   type: String,
-  //   default: uuid(),
-  //   required: true,
-  //   unique: true,
-  // },
   email: {
     type: String,
     required: true,
