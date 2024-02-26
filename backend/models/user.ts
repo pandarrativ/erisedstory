@@ -8,7 +8,7 @@ export interface User extends Document {
   createdAt: Date;
 }
 
-const UserSchema = new Schema({
+const UserSchema = new Schema<User> ({
   email: {
     type: String,
     required: true,
@@ -27,7 +27,7 @@ const UserSchema = new Schema({
     enum: ["parent", "instructor", "admin"],
     required: true,
   },
-  created_at: {
+  createdAt: {
     type: Date,
     default: Date.now,
     required: true,
