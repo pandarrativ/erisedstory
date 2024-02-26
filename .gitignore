@@ -6,6 +6,10 @@ node_modules/
 
 # Django
 *.pyc
+<<<<<<< HEAD
+=======
+**/__pycache__/
+>>>>>>> fda45e8d6b144549b65d56ef50857d4467e501a3
 __pycache__/
 db.sqlite3
 media
@@ -22,3 +26,14 @@ media
 .idea/
 *.swp
 *.swo
+<<<<<<< HEAD
+=======
+backend/users/migrations/__pycache__/0001_initial.cpython-39.pyc
+backend/users/migrations/__pycache__/__init__.cpython-39.pyc
+backend/users/migrations/__pycache__/0001_initial.cpython-39.pyc
+*.pyc
+
+
+# github desktop
+.DS_Store
+>>>>>>> fda45e8d6b144549b65d56ef50857d4467e501a3
