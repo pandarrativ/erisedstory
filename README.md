@@ -66,9 +66,6 @@ OPENAI_API_KEY="sk-...."
 `/backend/story_line/ai_models/openai_api.py` The method to make requests to openai
 
 
-
-
-=======
 # Erised Story - v1
 
 ## Versions/Environment
