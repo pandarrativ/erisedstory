@@ -24,6 +24,5 @@ media
 *.swo
 *.pyc
 
-
-# github desktop
+# macOS
 .DS_Store
