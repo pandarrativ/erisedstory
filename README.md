@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # ErisedStory
-
 
 
 ## Frontend
@@ -68,9 +66,6 @@ OPENAI_API_KEY="sk-...."
 `/backend/story_line/ai_models/openai_api.py` The method to make requests to openai
 
 
-
-
-=======
 # Erised Story - v1
 
 ## Versions/Environment
@@ -136,5 +131,3 @@ Start frontend app
 cd path_to_your_project/frontend
 npm install
 ```
->>>>>>> fda45e8d6b144549b65d56ef50857d4467e501a3
-
