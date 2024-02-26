@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 # ErisedStory
-
 
 
 ## Frontend
@@ -136,5 +134,3 @@ Start frontend app
 cd path_to_your_project/frontend
 npm install
 ```
->>>>>>> fda45e8d6b144549b65d56ef50857d4467e501a3
-
