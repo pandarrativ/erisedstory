@@ -10,7 +10,6 @@ const ERRORS = {
   EMAIL_NOT_REGISTERED: "emailNotRegistered",
   INCORRECT_PASSWORD: "incorrectPassword",
   ACCESS_FORBIDDEN: "accessForbidden",
-
 };
 
 // TODO: this is for frontend message mapping
