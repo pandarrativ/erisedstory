@@ -1,0 +1,121 @@
+.scripts{
+    width: 1580px;
+    overflow-x: auto; /* Add a horizontal scrollbar when content overflows */
+    white-space: nowrap;
+    padding-bottom: 10px;
+
+    display: flex;
+    flex-direction: row;
+    gap:20px 
+}
+
+
+/* script */
+.script{
+    width: 334px;
+    height: 234px;
+    padding: 20px;
+    background-color: #4dccbd;
+    border-radius: 24px;
+    
+}
+
+
+.script-bookmark{
+    font-size: 32px;
+    margin-top: -102px;
+    margin-left: 243px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+    position: relative;
+    z-index: 2;
+
+}
+
+.script-background-container{
+    width: 283px;
+    height: 112px;
+    border-radius: 24px;
+    
+    overflow: hidden; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.script-background{
+    min-width: 100%; 
+    min-height: 100%;
+    display: block; 
+    object-fit: cover; 
+
+
+
+    position: relative;
+    z-index: 1;
+}
+
+.script-profile{
+    width: 40px;
+    height: 40px;
+    border-radius: 100000px;
+}
+
+.script-type{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:20px;
+
+    width: 195px;
+    height: 48px;
+    margin-top: 45px;
+    margin-left: 10px;
+
+    background-color: #22AB64;
+    border-radius: 24px;
+    border: 1px solid #078946;
+    box-sizing: border-box;
+
+    position: relative;
+    z-index: 2;
+}
+
+.script-username{
+    text-align: center;
+    font-weight: var(--font-bold-weight);
+}
+
+.script-name{
+    font-weight: var(--font-bold-weight);
+    margin-top: 20px;
+}
+
+
+
+.script-button{
+    width: 100px;
+    height: 36px;
+    padding: 0px 15px;
+    border: 0;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background-color: #ff8484;
+    color: var(--bg-color);
+    line-height: var(--content-line-height);
+    outline: none;
+
+    position: relative;
+    top:-30px;
+    left:200px;
+
+}
+
+.script-button:hover{
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0,0,0, 0.6);
+}
