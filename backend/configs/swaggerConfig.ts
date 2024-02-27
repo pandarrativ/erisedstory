@@ -5,7 +5,7 @@ const options: swaggerJsdoc.Options = {
   swaggerDefinition: {
     openapi: "3.0.0",
     info: {
-      title: "Kids Story",
+      title: "ErisedStory",
       version: "1.0.0",
       description: "API Documentation",
     },
