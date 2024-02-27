@@ -6,9 +6,10 @@ export interface User extends Document {
   username: string;
   role: string;
   createdAt: Date;
+  phoneNumber: string;
 }
 
-const UserSchema = new Schema<User> ({
+const UserSchema = new Schema<User>({
   email: {
     type: String,
     required: true,
@@ -31,6 +32,9 @@ const UserSchema = new Schema<User> ({
     type: Date,
     default: Date.now,
     required: true,
+  },
+  phoneNumber: {
+    type: String,
   },
 });
 
