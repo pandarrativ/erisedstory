@@ -33,8 +33,10 @@ const authController = {
     const user: User = await createUser(email, password, role);
     res.status(201).json({
       user: {
+        id: user._id,
         email: user.email,
         username: user.username,
+        role: user.role,
       },
       message: "Successfully registered",
     });
@@ -69,8 +71,10 @@ const authController = {
     res.cookie("token", token, { httpOnly: true, secure: true });
     res.status(200).json({
       user: {
+        id: user._id,
         email: user.email,
         username: user.username,
+        role: user.role,
       },
       message: "Successfully logged in",
     });
