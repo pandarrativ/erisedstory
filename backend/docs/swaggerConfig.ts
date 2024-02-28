@@ -11,12 +11,12 @@ const options: swaggerJsdoc.Options = {
     },
     servers: [
       {
-        url: "http://localhost:5000",
+        url: "http://localhost:5000/api/v1",
         description: "Dev Server",
       },
     ],
   },
-  apis: [path.resolve(__dirname, "../routes/*.ts")],
+  apis: [path.resolve(__dirname, 'apis.yaml')],
 };
 
 export const swaggerSpec = swaggerJsdoc(options);
