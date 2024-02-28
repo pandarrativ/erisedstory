@@ -38,7 +38,6 @@ const authController = {
         username: user.username,
         role: user.role,
       },
-      message: "Successfully registered",
     });
   },
 
@@ -76,7 +75,6 @@ const authController = {
         username: user.username,
         role: user.role,
       },
-      message: "Successfully logged in",
     });
   },
 
