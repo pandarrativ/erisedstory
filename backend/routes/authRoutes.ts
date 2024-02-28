@@ -1,6 +1,6 @@
 import express from "express";
 import authController from "../controllers/authController";
-import { validateLoginInputs, validateRegisterInputs } from "../middleware/validateInputs";
+import { validateLoginInputs, validateRegisterInputs } from "../middleware/validation";
 
 const authRouter = express.Router();
 
@@ -148,5 +148,26 @@ authRouter.post("/register", validateRegisterInputs(), authController.registerUs
  *                   description: Error message indicating that the provided password is not registered or incorrect.
  */
 authRouter.post("/login", validateLoginInputs(), authController.loginUser);
+
+/**
+ * @swagger
+ * /api/v1/auth/logout:
+ *   post:
+ *     summary: Logs out the user.
+ *     description: Clears the authentication token cookie, effectively logging out the user.
+ *     responses:
+ *       '200':
+ *         description: Logged out successfully.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 message:
+ *                   type: string
+ *                   example: Logged out successfully
+ */
+
+authRouter.post("/logout", authController.logoutUser);
 
 export default authRouter;

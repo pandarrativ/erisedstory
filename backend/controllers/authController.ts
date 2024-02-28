@@ -79,6 +79,11 @@ const authController = {
       message: "Successfully logged in",
     });
   },
+
+  logoutUser(req: Request, res: Response) {
+    res.clearCookie("token");
+    res.status(200).json({ message: "Logged out successfully" });
+  }
 };
 
 async function createUser(email: string, password: string, role: string) {
