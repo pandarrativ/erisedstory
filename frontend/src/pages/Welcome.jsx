@@ -24,8 +24,8 @@ function Welcome(props) {
                 
 
                 <div className='welcome-login'>
-                    {/* {showLogin ? <Login></Login>  : <Signup></Signup>} */}
-                    <button className='login-form-submit' onClick={() => navigate("/home")}>Continue</button>
+                    <button className='login-form-submit' onClick={() => navigate("/Login")}>Login</button>
+                    {/* <button className='login-form-submit' onClick={() => navigate("/Signup")}>Signup</button> */}
                 </div>
             
             </div>

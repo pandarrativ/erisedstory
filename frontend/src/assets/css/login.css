@@ -1,0 +1,54 @@
+.login-container {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .login-header h1 {
+    font-size: 2.5rem; 
+    color: #000; 
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-header p {
+    font-size: 1rem;
+    color: #666; 
+  }
+  
+  .learnMore {
+    background: #CCC;
+    border: none;
+    color: #1E90FF;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 2rem;
+  }
+  
+  .login-form {
+    background: #FFFFFF; 
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; 
+  }
+  
+  .input-field {
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  
+  .input-field input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #CCC; 
+    border-radius: 5
+  }
