@@ -2,8 +2,8 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import swaggerUi from "swagger-ui-express";
+import { swaggerSpec } from "./docs/swaggerConfig";
 import connectDb from "./db/conn";
-import { swaggerSpec } from "./configs/swaggerConfig";
 import authRoutes from "./routes/authRoutes";
 
 const app = express();
