@@ -1,6 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 
 export const ROLES = ["parent", "educator", "admin"];
+
 export interface User extends Document {
   _id: Schema.Types.ObjectId;
   email: string;
@@ -24,7 +25,6 @@ const UserSchema = new Schema<User>({
   },
   username: {
     type: String,
-    required: true,
   },
   role: {
     type: String,
