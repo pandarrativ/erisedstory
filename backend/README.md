@@ -1,13 +1,15 @@
 # Backend
 
-**1. Setup**  
+**1. Install dependencies**  
 ```
 npm install
 ```
+**2. Setup Database**  
+Make sure MongoDB is installed and running on your system. Then, create a new database for this project. You can do this using the MongoDB shell or a GUI tool like MongoDB Compass.
 
-**2. Creating .env file**  
+**3. Create .env file**  
 ```
-cp .env
+touch .env
 ```  
 In `.env` file, set the following variables:  
 ```
@@ -17,10 +19,11 @@ JWT_SECRET_KEY=...
 JWT_LIFETIME=120 days
 ```
 
-**3. Running for dev**  
+**4. Run for dev**  
 ```
 npm run dev
 ```
 
-**4. Visiting API docs**  
+**5. Access API doc**  
+Once the server is running, you can access the API documentation at:
 http://localhost:5000/api-docs
