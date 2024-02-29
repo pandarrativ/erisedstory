@@ -19,28 +19,35 @@ const authController = {
       return;
     }
 
-    if (role === "admin") {
-      res.status(403).json({ error: ERRORS.ACCESS_FORBIDDEN });
-      return;
-    }
-
     const emailAlreadyRegistered = await UserModel.findOne({ email });
     if (emailAlreadyRegistered) {
       res.status(409).json({ error: ERRORS.EMAIL_IN_USE });
       return;
     }
 
-    const user: User = await createUser(email, password, role);
-    const token = createJWT(user);
-    res.cookie("token", token, { httpOnly: true, secure: true });
-    res.status(201).json({
-      user: {
-        id: user._id,
-        email: user.email,
+    try {
+      const user: User = await createUser(email, password, role);
+      const token = createJWT(user);
+      res.cookie("token", token, { httpOnly: true, secure: true });
+      res.status(201).json({ 
+        _id: user._id,
         username: user.username,
+        email: user.email,
         role: user.role,
-      },
-    });
+        createdAt: user.createdAt,
+       });
+    } catch(error: any) {
+      if (error.name === "ValidationError") {
+        const validationErrors: { [key: string]: string } = {};
+        for (const field in error.errors) {
+          validationErrors[field] = (error.errors[field] as any).message;
+        }
+        res.status(400).json({ errors: validationErrors });
+        return;
+      }
+      console.log(error);
+      res.status(500);
+    }
   },
 
   async loginUser(req: Request, res: Response) {
@@ -56,28 +63,31 @@ const authController = {
       return;
     }
 
-    const user = await UserModel.findOne({ email });
-    if (!user) {
-      res.status(401).json({ error: ERRORS.EMAIL_NOT_REGISTERED });
-      return;
-    }
-
-    const passwordMatch = await bcrypt.compare(password, user.hashedPassword);
-    if (!passwordMatch) {
-      res.status(401).json({ error: ERRORS.INCORRECT_PASSWORD });
-      return;
-    }
-
-    const token = createJWT(user);
-    res.cookie("token", token, { httpOnly: true, secure: true });
-    res.status(200).json({
-      user: {
-        id: user._id,
-        email: user.email,
+    try {
+      const user = await UserModel.findOne({ email });
+      if (!user) {
+        res.status(401).json({ error: ERRORS.EMAIL_NOT_REGISTERED });
+        return;
+      }
+  
+      const passwordMatch = await bcrypt.compare(password, user.hashedPassword);
+      if (!passwordMatch) {
+        res.status(401).json({ error: ERRORS.INCORRECT_PASSWORD });
+        return;
+      }
+      const token = createJWT(user);
+      res.cookie("token", token, { httpOnly: true, secure: true });
+      res.status(201).json({ 
+        _id: user._id,
         username: user.username,
+        email: user.email,
         role: user.role,
-      },
-    });
+        createdAt: user.createdAt,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+    }
   },
 
   logoutUser(req: Request, res: Response) {
