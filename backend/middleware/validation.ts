@@ -29,11 +29,10 @@ export function validateRegisterInputs() {
 export function validateLoginInputs() {
   return [
     body("email")
-      .notEmpty()
-      .withMessage(ERRORS.EMAIL_REQUIRED)
+      .notEmpty().withMessage(ERRORS.EMAIL_REQUIRED)
       .if((value: string) => !!value)
-      .isEmail()
-      .withMessage(ERRORS.INVALID_EMAIL),
-    body("password").notEmpty().withMessage(ERRORS.PASSWORD_REQUIRED),
+      .isEmail().withMessage(ERRORS.INVALID_EMAIL),
+    body("password")
+    .notEmpty().withMessage(ERRORS.PASSWORD_REQUIRED),
   ];
 }
