@@ -11,10 +11,12 @@ const authController = {
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      const formattedErrors = errors.array().reduce((acc: { [key: string]: string }, error: any) => {
-        acc[error.path] = error.msg;
-        return acc;
-      }, {});
+      const formattedErrors = errors
+        .array()
+        .reduce((acc: { [key: string]: string }, error: any) => {
+          acc[error.path] = error.msg;
+          return acc;
+        }, {});
       res.status(400).json({ errors: formattedErrors });
       return;
     }
@@ -29,24 +31,24 @@ const authController = {
       const user: User = await createUser(email, password, role);
       const token = createJWT(user);
       res.cookie("token", token, { httpOnly: true, secure: true });
-      res.status(201).json({ 
+      res.status(201).json({
         _id: user._id,
         username: user.username,
         email: user.email,
         role: user.role,
         createdAt: user.createdAt,
-       });
-    } catch(error: any) {
-      if (error.name === "ValidationError") {
+      });
+    } catch (err: any) {
+      if (err.name === "ValidationError") {
         const validationErrors: { [key: string]: string } = {};
-        for (const field in error.errors) {
-          validationErrors[field] = (error.errors[field] as any).message;
+        for (const field in err.errors) {
+          validationErrors[field] = (err.errors[field] as any).message;
         }
         res.status(400).json({ errors: validationErrors });
         return;
       }
-      console.log(error);
-      res.status(500);
+      console.log(err);
+      res.status(500).json({ error: err.toString() });
     }
   },
 
@@ -55,10 +57,12 @@ const authController = {
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      const formattedErrors = errors.array().reduce((acc: { [key: string]: string }, error: any) => {
-        acc[error.path] = error.msg;
-        return acc;
-      }, {});
+      const formattedErrors = errors
+        .array()
+        .reduce((acc: { [key: string]: string }, error: any) => {
+          acc[error.path] = error.msg;
+          return acc;
+        }, {});
       res.status(400).json({ errors: formattedErrors });
       return;
     }
@@ -69,7 +73,7 @@ const authController = {
         res.status(401).json({ error: ERRORS.EMAIL_NOT_REGISTERED });
         return;
       }
-  
+
       const passwordMatch = await bcrypt.compare(password, user.hashedPassword);
       if (!passwordMatch) {
         res.status(401).json({ error: ERRORS.INCORRECT_PASSWORD });
@@ -77,23 +81,23 @@ const authController = {
       }
       const token = createJWT(user);
       res.cookie("token", token, { httpOnly: true, secure: true });
-      res.status(201).json({ 
+      res.status(201).json({
         _id: user._id,
         username: user.username,
         email: user.email,
         role: user.role,
         createdAt: user.createdAt,
       });
-    } catch (error) {
-      console.log(error);
-      res.status(500);
+    } catch (err: any) {
+      console.log(err);
+      res.status(500).json({ error: err.toString() });
     }
   },
 
   logoutUser(req: Request, res: Response) {
     res.clearCookie("token");
     res.status(200).json({ message: "Logged out successfully" });
-  }
+  },
 };
 
 async function createUser(email: string, password: string, role: string) {
@@ -113,8 +117,8 @@ async function createUser(email: string, password: string, role: string) {
 
 function createJWT(user: User) {
   return jwt.sign(
-    { userId: user._id, role: user.role }, 
-    process.env.JWT_SECRET_KEY!, 
+    { userId: user._id, role: user.role },
+    process.env.JWT_SECRET_KEY!,
     { expiresIn: process.env.JWT_LIFETIME }
   );
 }
