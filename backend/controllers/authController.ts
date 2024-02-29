@@ -81,7 +81,7 @@ const authController = {
       }
       const token = createJWT(user);
       res.cookie("token", token, { httpOnly: true, secure: true });
-      res.status(201).json({
+      res.status(200).json({
         _id: user._id,
         username: user.username,
         email: user.email,
