@@ -3,7 +3,7 @@ import cors from "cors";
 import "dotenv/config";
 import cookieParser from "cookie-parser";
 import swaggerUi from "swagger-ui-express";
-import { swaggerSpec } from "./docs/swaggerConfig";
+import { swaggerSpec } from "./docs/swaggerSpec";
 import connectDb from "./db/conn";
 import authRoutes from "./routes/authRoutes";
 
