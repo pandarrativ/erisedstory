@@ -141,7 +141,7 @@ paths:
                     type: object
                     description: An object containing validation errors.
         '401':
-          description: Unauthorized. The provided password is not registered or incorrect.
+          description: Unauthorized. The provided email is not registered or password is not incorrect.
           content:
             application/json:
               schema:
@@ -150,7 +150,7 @@ paths:
                   error:
                     type: string
                     example: emailNotRegistered
-                    description: Error message indicating that the provided password is not registered or incorrect.
+                    description: Error message indicating that provided email is not registered or password is not incorrect.
   /auth/logout:
     post:
       tags:
