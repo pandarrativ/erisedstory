@@ -31,6 +31,8 @@ const authController = {
     }
 
     const user: User = await createUser(email, password, role);
+    const token = createJWT(user);
+    res.cookie("token", token, { httpOnly: true, secure: true });
     res.status(201).json({
       user: {
         id: user._id,
@@ -101,7 +103,7 @@ async function createUser(email: string, password: string, role: string) {
 
 function createJWT(user: User) {
   return jwt.sign(
-    { userId: user._id }, 
+    { userId: user._id, role: user.role }, 
     process.env.JWT_SECRET_KEY!, 
     { expiresIn: process.env.JWT_LIFETIME }
   );
