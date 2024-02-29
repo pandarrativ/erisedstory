@@ -1,7 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
 export const ROLES = ["parent", "educator", "admin"];
-
 export interface User extends Document {
   _id: Schema.Types.ObjectId;
   email: string;
@@ -9,7 +8,7 @@ export interface User extends Document {
   username: string;
   role: string;
   createdAt: Date;
-  phoneNumber: string;
+  phoneNumber?: string;
 }
 
 const UserSchema = new Schema<User>({
@@ -25,10 +24,11 @@ const UserSchema = new Schema<User>({
   },
   username: {
     type: String,
+    required: true,
   },
   role: {
     type: String,
-    enum: ["parent", "instructor", "admin"],
+    enum: ROLES,
     required: true,
   },
   createdAt: {
