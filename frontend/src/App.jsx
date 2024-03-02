@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 
 import { LOGIN_STATUS, SERVER, CLIENT, MESSAGES} from "./config/constants.js";
-import {fetchLogin, fetchLogout, fetchSession} from "./config/Services";
+import {fetchLogin, fetchLogout, fetchSession} from "./config/services.js";
 
 import Home from './pages/Home';
 import Welcome from './pages/Welcome';
