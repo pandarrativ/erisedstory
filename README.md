@@ -1,6 +1,13 @@
 # ErisedStory
 
 
+## Versions/Environment
+node  v21.6.2 (tested on node v19 and it works)
+npm v10.2.4
+python 3
+
+
+
 ## Frontend
 
 ### Download
@@ -18,7 +25,7 @@ After installing the dependencies, create a `.env` file (In VSCode, you can writ
 Write following line to .env file
 
 ```
-REACT_APP_BACKEND_HOST="http://localhost:8000"
+REACT_APP_BACKEND_HOST="http://localhost:8001"
 PORT=3000
 ```
 
@@ -44,9 +51,10 @@ Enter the `/backend` folder, create a python environment using Pyton==3.8 and do
 
 ```shell
 cd /backend
-conda create --name script_tool_env python=3.9
-conda activate script_tool_env
+conda create --name erised_env python=3.9
+conda activate erised_env
 pip install -r requirements.txt
+python manage.py runserver 8001
 ```
 
 Create a `.env` file and put your environment variables(sensitive information here) 
@@ -66,68 +74,4 @@ OPENAI_API_KEY="sk-...."
 `/backend/story_line/ai_models/openai_api.py` The method to make requests to openai
 
 
-# Erised Story - v1
 
-## Versions/Environment
-node  v21.6.2 (tested on node v19 and it works)
-npm v10.2.4
-python 3
-
-
-## First Settup
-
-### Frontend
-
-Create a `.env` file in your `/frontend` folder and add this line into it
-
-```
-REACT_APP_BACKEND_HOST="http://localhost:8000"
-```
-
-then run following command in your terminal
-
-```shell
-cd path_to_your_project/frontend
-npm install
-npm start
-```
-
-
-
-
-
-### Backend
-
-Create a `.env` file in your `/backend` folder and add these lines into it  (Replace information ...)
-
-```
-OPENAI_API_KEY="..."
-OPENAI_API_VERSION="."
-OPENAI_API_ENDPOINT="."
-```
-
-Open a new terminal, then run following command in terminal
-
-```shell
-cd path_to_your_project/backend
-conda create --name yourenvname python=3.9
-conda activate yourenvname
-pip install -r requirements.txt
-python manage.py runserver
-```
-
-
-## Run if you finish settup before
-Start backend server
-
-```shell
-cd path_to_your_project/backend
-conda activate yourenvname
-python manage.py runserver
-```
-
-Start frontend app
-```shell
-cd path_to_your_project/frontend
-npm install
-```
