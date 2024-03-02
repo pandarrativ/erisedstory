@@ -2,23 +2,25 @@ import { useState } from "react";
 import "../assets/css/login.css";
 
 function Login({ onLogin, error }) {
-  const [username, setUserName] = useState("");
-  const [passcode, setPasscode] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    if (name === "username") {
-      setUserName(value);
-    } else if (name === "passcode") {
-      setPasscode(value);
+    if (name === "email") {
+      setEmail(value);
+    } else if (name === "password") {
+      setPassword(value);
     }
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    onLogin(username, passcode);
-    setUserName("");
-    setPasscode("");
+    // validate inputs here
+    // if inputs are valid:
+    onLogin(email, password);
+    setEmail("");
+    setPassword("");
   };
 
   return (
@@ -32,27 +34,27 @@ function Login({ onLogin, error }) {
         <form onSubmit={submitHandler}>
           <div className="input-field">
             <input
-              type="text"
-              id="username"
-              name="username"
-              value={username}
+              type="email"
+              id="email"
+              name="email"
+              value={email}
               onInput={handleInput}
-              placeholder="Username"
+              placeholder="Email"
             />
           </div>
-          {/* <div className="input-field">
+          <div className="input-field">
             <input
               type="password"
-              id="passcode"
-              name="passcode"
-              value={passcode}
+              id="password"
+              name="password"
+              value={password}
               onInput={handleInput}
-              placeholder="Passcode"
+              placeholder="Password"
             />
-          </div> */}
+          </div>
           <button type="submit" className="login-btn">Log In -{">"}</button>
         </form>
-        	{error && <span className="error-msg">{error}</span>}
+        { error.message && <span className="error-msg">{error.message}</span> }
       </div>
     </div>
   );
