@@ -17,13 +17,13 @@ const authController = {
           acc[error.path] = error.msg;
           return acc;
         }, {});
-      res.status(400).json({ errors: formattedErrors });
+      res.status(400).json({ message: formattedErrors });
       return;
     }
 
     const emailAlreadyRegistered = await UserModel.findOne({ email });
     if (emailAlreadyRegistered) {
-      res.status(409).json({ error: ERRORS.EMAIL_IN_USE });
+      res.status(409).json({ message: ERRORS.EMAIL_IN_USE });
       return;
     }
 
@@ -44,11 +44,11 @@ const authController = {
         for (const field in err.errors) {
           validationErrors[field] = (err.errors[field] as any).message;
         }
-        res.status(400).json({ errors: validationErrors });
+        res.status(400).json({ messages: validationErrors });
         return;
       }
       console.log(err);
-      res.status(500).json({ error: err.toString() });
+      res.status(500).json({ message: err.toString() });
     }
   },
 
@@ -63,20 +63,20 @@ const authController = {
           acc[error.path] = error.msg;
           return acc;
         }, {});
-      res.status(400).json({ errors: formattedErrors });
+      res.status(400).json({ messages: formattedErrors });
       return;
     }
 
     try {
       const user = await UserModel.findOne({ email });
       if (!user) {
-        res.status(401).json({ error: ERRORS.EMAIL_NOT_REGISTERED });
+        res.status(401).json({ message: ERRORS.EMAIL_NOT_REGISTERED });
         return;
       }
 
       const passwordMatch = await bcrypt.compare(password, user.hashedPassword);
       if (!passwordMatch) {
-        res.status(401).json({ error: ERRORS.INCORRECT_PASSWORD });
+        res.status(401).json({ message: ERRORS.INCORRECT_PASSWORD });
         return;
       }
       const token = createJWT(user);
@@ -90,7 +90,7 @@ const authController = {
       });
     } catch (err: any) {
       console.log(err);
-      res.status(500).json({ error: err.toString() });
+      res.status(500).json({ message: err.toString() });
     }
   },
 

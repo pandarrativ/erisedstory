@@ -61,7 +61,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  errors: 
+                  messages: 
                     type: object
                     description: An object containing validation errors.
         '403':
@@ -71,7 +71,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  error: 
+                  message: 
                     type: string
                     example: accessForbidden
                     description: Error message indicating that registration as admin is forbidden.
@@ -82,7 +82,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  error:
+                  message:
                     type: string
                     example: emailAlreadyInUse
                     description: Error message indicating that the provided email is already registered.
@@ -137,7 +137,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  errors:
+                  messages:
                     type: object
                     description: An object containing validation errors.
         '401':
@@ -147,7 +147,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  error:
+                  message:
                     type: string
                     example: emailNotRegistered
                     description: Error message indicating that provided email is not registered or password is not incorrect.
