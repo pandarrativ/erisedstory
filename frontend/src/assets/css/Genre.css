@@ -1,0 +1,104 @@
+.genre{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../imgs/Learning_bg_blur.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.genre-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.genre-contain {
+    padding: 5rem 5rem 0 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.genre-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: flex-end;
+
+}
+
+.genre-card1,
+.genre-card2,
+.genre-card3,
+.genre-card4 {
+    border: 3px solid #FB9C47; 
+    border-radius: 20px;
+    padding: 2rem 2rem 2rem 0;
+    width: calc(40% - 2rem); 
+    margin-bottom: 2rem;
+    
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.genre-card-title {
+    font-size: 1.25rem; 
+    color: #FB9C47; 
+    text-align: center;
+    flex: 1; 
+}
+
+.genre-card-img {
+    max-width: 55%;
+    flex: none; 
+}
+
+.genre-arrow {
+    cursor: pointer;
+    width: 20%;
+    margin-left: 1rem;
+    align-self: center;
+    z-index: 2;
+}
+
+.genre-card4 {
+    background-color: #FB9C47; 
+}
+
+.genre-card4 .genre-card-title {
+    color: #FFFFFF; 
+}
+
+@media (max-width: 768px) {
+    .genre-contain {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .genre-cards {
+        width: 100%;
+    }
+
+    .genre-card1,
+    .genre-card2,
+    .genre-card3,
+    .genre-card4 {
+        width: 100%; /* Full width for mobile */
+        margin-bottom: 1rem;
+    }
+
+    .genre-arrow {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
