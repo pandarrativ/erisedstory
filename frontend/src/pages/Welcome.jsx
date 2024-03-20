@@ -1,41 +1,32 @@
 import React from 'react';
 import "../assets/css/welcome.css"
-import WelcomeImg from "../assets/imgs/welcome.png"
 import { useNavigate } from 'react-router-dom';
+import Welcome_title from '../assets/imgs/Welcome_title.png';
+import Arrow from '../assets/imgs/Arrow.png';
+import saga_agent from '../assets/imgs/saga_agent.png';
 
 
-function Welcome(props) {
+function Welcome() {
     const navigate = useNavigate();
 
     return (
         <div className='welcome'>
             <div className='welcome-top'>
-                <div className='welcome-title font-c2'>Erised Story</div>
-
+                <img src= {Welcome_title} alt="welcome title" className='welcome-title'></img>
+                <img src= {Arrow} alt="arrow" className='arrow'  onClick={() => navigate("/Learning")}></img>
             </div>
-            <div className='welcome-left'>
-                <div className='welcome-left-top'>
-                    <div className='welcome-subheader text-dec'>Phobia Platform</div>
-                    <div className='welcome-hedaer font-h1'>Erised Story</div>
-                    <div className='welcome-description'>
-                        Using the power of narration to provide more immersive and enjoyable rumination releasing experience
-                    </div>
-                </div>
-                
 
+            {/* <div className='welcome-left'>
                 <div className='welcome-login'>
-                    {/* {showLogin ? <Login></Login>  : <Signup></Signup>} */}
+                    {showLogin ? <Login></Login>  : <Signup></Signup>}
                     <button className='login-form-submit' onClick={() => navigate("/home")}>Continue</button>
                 </div>
-            
+            </div> */}
+
+            <div className='welcome-bottom'>
+                <img src= {saga_agent} alt="asga agent" className='saga-agent'></img>
             </div>
 
-            <div className='welcome-right'>
-            
-                <div className='img-box welcome-img'>
-                    <img src={WelcomeImg} alt="welcom img" className='box-img'></img>
-                </div>
-            </div>
         </div>
     );
 }
