@@ -1,6 +1,6 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
-export const ROLES = ["parent", "educator", "admin"];
+export const ROLES = ['parent', 'educator', 'admin'];
 
 export interface User extends Document {
   _id: Schema.Types.ObjectId;
@@ -41,11 +41,11 @@ const UserSchema = new Schema<User>({
   },
 });
 
-UserSchema.pre<User>("save", function (next) {
+UserSchema.pre<User>('save', function (next) {
   if (!this.username && this.email) {
-    this.username = this.email.split("@")[0];
+    this.username = this.email.split('@')[0];
   }
   next();
 });
 
-export const UserModel = mongoose.model<User>("User", UserSchema);
+export const UserModel = mongoose.model<User>('User', UserSchema);
