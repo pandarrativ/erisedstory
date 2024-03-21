@@ -1,25 +1,15 @@
-# Backend
+# erisedstory-backend
 
-## 1 Setup
+## 1 Backend setup
 ### 1.1 Install dependencies
 ```
-cd backend
 npm install
 ```
 ### 1.2 Setup database
 Make sure MongoDB is installed and running on your system. Then, create a new database for this project. You can do this using the MongoDB shell or a GUI tool like MongoDB Compass.
 
-### 1.3 Create .env file
-```
-touch .env
-```  
-In `.env` file, set the following variables:  
-```
-PORT=5000
-MONGODB_URI=... (e.g., mongodb://127.0.0.1:27017)
-JWT_SECRET_KEY=...
-JWT_LIFETIME=120 days
-```
+### 1.3 Setup .env file
+In `.env.example` file, set all the variables. Rename this file to `.env`.
 
 ### 1.4 Run for dev  
 ```
@@ -28,18 +18,23 @@ npm run dev
 
 ### 1.5 Access API doc
 Once the server is running, you can access the API documentation at:
-http://localhost:5000/api-docs
+```
+http://localhost:${PORT}/api-docs
+```
 
 <br>
 
 ## 2 APIs
-`http://localhost:5000/api/v1`
+`/api/v1`
 ### auth
 | Method | Route | Role access |
 |----|---|---|
 | `POST` | `/auth/register` | All (`admin` registration will be restricted later) |
 | `POST` | `/auth/login` | All |
 | `POST` | `/auth/logout` | All |
+| `GET` | `/auth/google` | All |
+
+---------------------Draft--------------------------
 
 ### user
 | Method | Route | Role access |

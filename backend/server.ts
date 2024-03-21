@@ -1,27 +1,24 @@
 import express from 'express';
 import cors from 'cors';
-import 'dotenv/config';
 import cookieParser from 'cookie-parser';
+import 'dotenv/config';
+import DBConnector from './db/DBConnector';
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSpec } from './docs/swaggerSpec';
-import authRoutes from './routes/authRoutes';
-import DBConnector from './db/DBConnector';
+import router from './routes/router';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI;
-
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
+
+const PORT = process.env.PORT;
+const MONGODB_URI = process.env.MONGODB_URI;
+
+app.get('/', (req, res) => {res.json({ message: 'hello' });});
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-app.get('/', (req, res) => {
-  res.json({ message: 'hello' });
-});
-
-app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1', router);
 
 async function start() {
   try {
