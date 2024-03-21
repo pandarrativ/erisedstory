@@ -4,8 +4,8 @@ import 'dotenv/config';
 import cookieParser from 'cookie-parser';
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSpec } from './docs/swaggerSpec';
-import connectDb from './db/conn';
 import authRoutes from './routes/authRoutes';
+import DBConnector from './db/DBConnector';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -23,18 +23,16 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/auth', authRoutes);
 
-const start = async () => {
+async function start() {
   try {
-    if (!MONGODB_URI) {
-      throw new Error('MongoDB URI is required');
-    }
-    await connectDb(MONGODB_URI);
+    const dbConnector = new DBConnector(MONGODB_URI);
+    await dbConnector.connect();
     app.listen(PORT, () => {
-      console.log(`Listening on http://localhost:${PORT}.`);
+      console.log(`⚡️Listening on http://localhost:${PORT}`);
     });
   } catch (error) {
-    console.log(error);
+    console.error('Error starting server:', error);
   }
-};
+}
 
 start();
