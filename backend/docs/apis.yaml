@@ -61,7 +61,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  messages: 
+                  errors: 
                     type: object
                     description: An object containing validation errors.
         '403':
@@ -71,7 +71,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  message: 
+                  error: 
                     type: string
                     example: accessForbidden
                     description: Error message indicating that registration as admin is forbidden.
@@ -82,7 +82,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  message:
+                  error:
                     type: string
                     example: emailAlreadyInUse
                     description: Error message indicating that the provided email is already registered.
@@ -137,7 +137,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  messages:
+                  errors:
                     type: object
                     description: An object containing validation errors.
         '401':
@@ -147,7 +147,7 @@ paths:
               schema:
                 type: object
                 properties:
-                  message:
+                  error:
                     type: string
                     example: emailNotRegistered
                     description: Error message indicating that provided email is not registered or password is not incorrect.
@@ -155,7 +155,7 @@ paths:
     post:
       tags:
         - auth
-      summary: Logs out the user.
+      summary: Logs out the user
       description: Clears the authentication token cookie, effectively logging out the user.
       responses:
         '200':
@@ -168,3 +168,75 @@ paths:
                   message:
                     type: string
                     example: Logged out successfully
+  /auth/google:
+    get:
+      tags:
+        - auth
+      summary: Initiate Google OAuth authentication
+      description: |
+        Redirects the user to Google's authentication page to initiate the OAuth flow.
+      parameters:
+        - in: query
+          name: role
+          schema:
+            type: string
+          required: false
+          description: Role parameter is required when register with OAuth, and not required when login with OAuth
+      responses:
+        '302':
+          description: Redirects the user to Google's authentication page
+  /auth/google/callback:
+    get:
+      tags:
+        - auth
+      summary: Callback endpoint for Google OAuth authentication
+      description: |
+        Callback endpoint that Google redirects to after successful authentication.
+      parameters:
+        - in: query
+          name: state
+          schema:
+            type: string
+          required: true
+          description: State parameter received from Google OAuth flow
+      responses:
+        '200':
+          description: Successful authentication
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    description: JWT token for authenticated user
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Error message

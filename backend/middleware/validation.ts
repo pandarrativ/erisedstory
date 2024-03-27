@@ -1,22 +1,29 @@
-import { body } from "express-validator";
-import ERRORS from "../errors";
-import { ROLES } from "../models/user";
+import { body } from 'express-validator';
+import ERRORS from '../errors';
+import { ROLES } from '../models/user';
 
 export function validateRegisterInputs() {
   return [
-    body("role")
-      .notEmpty().withMessage(ERRORS.ROLE_REQUIRED)
-      .isIn(ROLES).withMessage(ERRORS.INVALID_ROLE),
-    body("email")
-      .notEmpty().withMessage(ERRORS.EMAIL_REQUIRED)
+    body('role')
+      .notEmpty()
+      .withMessage(ERRORS.ROLE_REQUIRED)
+      .isIn(ROLES)
+      .withMessage(ERRORS.INVALID_ROLE),
+    body('email')
+      .notEmpty()
+      .withMessage(ERRORS.EMAIL_REQUIRED)
       .if((value: string) => !!value)
-      .isEmail().withMessage(ERRORS.INVALID_EMAIL),
-    body("password")
-      .notEmpty().withMessage(ERRORS.PASSWORD_REQUIRED)
+      .isEmail()
+      .withMessage(ERRORS.INVALID_EMAIL),
+    body('password')
+      .notEmpty()
+      .withMessage(ERRORS.PASSWORD_REQUIRED)
       .if((value: string) => !!value)
-      .isLength({ min: 5 }).withMessage(ERRORS.PASSWORD_LENGTH),
-    body("confirmPassword")
-      .notEmpty().withMessage(ERRORS.CONFIRM_PASSWORD_REQUIRED)
+      .isLength({ min: 5 })
+      .withMessage(ERRORS.PASSWORD_LENGTH),
+    body('confirmPassword')
+      .notEmpty()
+      .withMessage(ERRORS.CONFIRM_PASSWORD_REQUIRED)
       .custom((value: string, { req }) => {
         if (req.body.password && value && value !== req.body.password) {
           throw new Error(ERRORS.PASSWORDS_MISMATCH);
@@ -28,11 +35,12 @@ export function validateRegisterInputs() {
 
 export function validateLoginInputs() {
   return [
-    body("email")
-      .notEmpty().withMessage(ERRORS.EMAIL_REQUIRED)
+    body('email')
+      .notEmpty()
+      .withMessage(ERRORS.EMAIL_REQUIRED)
       .if((value: string) => !!value)
-      .isEmail().withMessage(ERRORS.INVALID_EMAIL),
-    body("password")
-    .notEmpty().withMessage(ERRORS.PASSWORD_REQUIRED),
+      .isEmail()
+      .withMessage(ERRORS.INVALID_EMAIL),
+    body('password').notEmpty().withMessage(ERRORS.PASSWORD_REQUIRED),
   ];
 }

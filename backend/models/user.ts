@@ -1,18 +1,19 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema } from 'mongoose';
 
-export const ROLES = ["parent", "educator", "admin"];
+export const ROLES = ['student', 'parent', 'educator', 'admin'];
 
-export interface User extends Document {
+export interface IUser extends Document {
   _id: Schema.Types.ObjectId;
   email: string;
-  hashedPassword: string;
+  hashedPassword?: string;
+  googleId?: string;
   username: string;
   role: string;
   createdAt: Date;
   phoneNumber?: string;
 }
 
-const UserSchema = new Schema<User>({
+const UserSchema = new Schema<IUser>({
   email: {
     type: String,
     required: true,
@@ -20,8 +21,14 @@ const UserSchema = new Schema<User>({
   },
   hashedPassword: {
     type: String,
-    required: true,
     minlength: 4,
+    required: function (this: IUser) {
+      return !this.googleId;
+    },
+  },
+  googleId: {
+    type: String,
+    unique: true,
   },
   username: {
     type: String,
@@ -29,7 +36,9 @@ const UserSchema = new Schema<User>({
   role: {
     type: String,
     enum: ROLES,
-    required: true,
+    required: function (this: IUser) {
+      return !this.googleId;
+    },
   },
   createdAt: {
     type: Date,
@@ -41,11 +50,11 @@ const UserSchema = new Schema<User>({
   },
 });
 
-UserSchema.pre<User>("save", function (next) {
+UserSchema.pre<IUser>('save', function (next) {
   if (!this.username && this.email) {
-    this.username = this.email.split("@")[0];
+    this.username = this.email.split('@')[0];
   }
   next();
 });
 
-export const UserModel = mongoose.model<User>("User", UserSchema);
+export const UserModel = mongoose.model<IUser>('User', UserSchema);

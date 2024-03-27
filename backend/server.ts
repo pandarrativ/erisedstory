@@ -1,40 +1,35 @@
-import express from "express";
-import cors from "cors";
-import "dotenv/config";
-import cookieParser from "cookie-parser";
-import swaggerUi from "swagger-ui-express";
-import { swaggerSpec } from "./docs/swaggerSpec";
-import connectDb from "./db/conn";
-import authRoutes from "./routes/authRoutes";
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import 'dotenv/config';
+import DBConnector from './db/DBConnector';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec } from './docs/swaggerSpec';
+import router from './routes/router';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI;
-
 app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.get("/", (req, res) => {
-  res.json({ message: "hello" });
-});
+const PORT = process.env.PORT;
+const MONGODB_URI = process.env.MONGODB_URI;
 
-app.use("/api/v1/auth", authRoutes);
+app.get('/', (req, res) => {res.json({ message: 'hello' });});
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/api/v1', router);
 
-const start = async () => {
+async function start() {
   try {
-    if (!MONGODB_URI) {
-      throw new Error("MongoDB URI is required");
-    }
-    await connectDb(MONGODB_URI);
+    const dbConnector = new DBConnector(MONGODB_URI);
+    await dbConnector.connect();
     app.listen(PORT, () => {
-      console.log(`Listening on http://localhost:${PORT}.`);
+      console.log(`⚡️Listening on http://localhost:${PORT}`);
     });
   } catch (error) {
-    console.log(error);
+    console.error('Error starting server:', error);
   }
-};
+}
 
 start();
