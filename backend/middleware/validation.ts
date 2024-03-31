@@ -1,5 +1,5 @@
 import { body } from 'express-validator';
-import ERRORS from '../errors';
+import ERRORS from '../utils/errors';
 import { ROLES } from '../models/user';
 
 export function validateRegisterInputs() {

@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { Strategy } from 'passport-google-oauth20';
 import { IUser, UserModel } from '../models/user';
-import ERRORS from '../errors';
+import ERRORS from '../utils/errors';
 
 const PORT = process.env.PORT;
 const OAUTH_CLIENT_ID = process.env.OAUTH_CLIENT_ID;

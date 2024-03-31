@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
 import { IUser, UserModel } from '../models/user';
-import ERRORS from '../errors';
+import ERRORS from '../utils/errors';
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const JWT_LIFETIME = process.env.JWT_LIFETIME;
