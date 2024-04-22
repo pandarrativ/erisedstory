@@ -1,17 +1,26 @@
 import "../assets/css/Learning.css"
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import learning_title from '../assets/imgs/Learning_title.png';
 import Arrow from '../assets/imgs/Arrow.png';
+import { fetchLearningGoals } from '../services';
 
-function Learning(props) {
+function Learning() {
 
     const navigate = useNavigate();
+    
+    const [learningGoals, setLearningGoals] = useState([]);
+    useEffect(() => {
+        fetchLearningGoals()
+            .then(data => setLearningGoals(data))
+            .catch(error => console.error('Error fetching learning goals:', error));
+    }
+    , []);
 
-    const learningGoals = [
-        "learning goal 1", "learning goal 2", "learning goal 3", 
-        "learning goal 4", "learning goal 5", "learning goal 6"
-    ];
+    // const learningGoals = [
+    //     "learning goal 1", "learning goal 2", "learning goal 3", 
+    //     "learning goal 4", "learning goal 5", "learning goal 6"
+    // ];
 
     return (
         <div className='learning'>

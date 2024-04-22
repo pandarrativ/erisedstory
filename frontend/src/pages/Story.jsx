@@ -1,26 +1,20 @@
-import React, { useEffect } from "react";
+import React, {useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/story.css";
+import { fetchStoryText } from "../services";
 
 function Story() {
 
     const navigate = useNavigate();
-    // const [storyText, setStoryText] = useState("");
-    // const [stroyReady, setStoryReady] = useState(false);
+    const [storyText, setStoryText] = useState("");
 
-    const storyText = "In a small, cozy village where everyone knew each other's names,there was a young boy named Alex who had a special pair of glasses that allowed him to see the world through the eyes of others. One sunny day, he stumbled upon a sad, lonely cat stuck in a tall tree, feeling scared and wishing for a friend to understand its fear."
+    // const storyText = "In a small, cozy village where everyone knew each other's names,there was a young boy named Alex who had a special pair of glasses that allowed him to see the world through the eyes of others. One sunny day, he stumbled upon a sad, lonely cat stuck in a tall tree, feeling scared and wishing for a friend to understand its fear."
 
-    // todo: fetch story from backend
-
-    // useEffect(() => {
-    //     // Delay the display of the story after the user lands on the page
-    //     const storyDisplayTimeout = setTimeout(() => {
-    //       generateStory();
-    //       setStoryReady(true);
-    //     }, 3000); // 3 seconds delay before showing the story
-    
-    //     return () => clearTimeout(storyDisplayTimeout);
-    //   }, []);
+    useEffect(() => {
+        fetchStoryText()
+            .then((story) => setStoryText(story))
+            .catch((error) => console.error("Error fetching story text:", error));
+      }, []);
 
 
     useEffect(() => {

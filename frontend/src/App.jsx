@@ -105,31 +105,25 @@ function App() {
         <Routes>
           <Route path="/" element={
             <Saga> 
-              <Welcome onLogin={onLogin} error={error} isAuthenticated={isAuthenticated} onLogout={onLogout}/>
+              <Welcome/>
             </Saga> }></Route>    
 
           <Route path="/learning" element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-              <Saga><Learning/></Saga>
-            </ProtectedRoute>}>
+              <Saga><Learning/></Saga>}>
           </Route>
 
           <Route path="/genre" element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
             <Saga><Genre/></Saga>
-            </ProtectedRoute>}>
+          }>
           </Route>
 
           <Route path="/story" element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
             <Saga><Story/></Saga>
-            </ProtectedRoute>}>
+          }>
           </Route>
 
           <Route path="/game" element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
-            <Saga><Game/></Saga>
-            </ProtectedRoute>}>
+            <Saga><Game/></Saga>}>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { fetchGame } from "../services";
 import "../assets/css/Game.css";
 import cloud from "../assets/imgs/cloud.png";
 import dialog_bg from "../assets/imgs/dialog_bg.png";
@@ -10,7 +10,7 @@ import word_bg from "../assets/imgs/word_bg.png";
 function Game() {
 
     const navigate = useNavigate();
-    const words = ["Apple", "Tree", "Pear"]
+    const [words, setWords] = useState([]);
 
     const [isCloudVisible, setIsCloudVisible] = useState(false);
     const [showInstructions, setShowInstructions] = useState(false);
@@ -23,6 +23,11 @@ function Game() {
 
     //speech recognition API
     useEffect(() => {
+        fetchGame().then((game) => {
+            setWords(game.words);
+        }).catch((error) => console.error("Error fetching game:", error));
+
+        
         if ('webkitSpeechRecognition' in window) {
           recognition = new window.webkitSpeechRecognition();
           recognition.continuous = true;
