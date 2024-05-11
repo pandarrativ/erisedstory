@@ -1,19 +1,30 @@
 import mongoose, { Schema } from 'mongoose';
+import { v4 as uuid } from 'uuid';
 
-export const ROLES = ['student', 'parent', 'educator', 'admin'];
+export enum ROLE {
+  ADMIN = 'admin',
+  STUDENT = 'student',
+  PARENT = 'parent',
+  EDUCATOR = 'educator',
+}
 
 export interface IUser extends Document {
-  _id: Schema.Types.ObjectId;
+  id: string;
   email: string;
   hashedPassword?: string;
   googleId?: string;
   username: string;
-  role: string;
+  role: ROLE;
   createdAt: Date;
   phoneNumber?: string;
 }
 
 const UserSchema = new Schema<IUser>({
+  id: { 
+    type: String, 
+    default: 'user_' + uuid(),
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -28,14 +39,14 @@ const UserSchema = new Schema<IUser>({
   },
   googleId: {
     type: String,
-    unique: true,
+    sparse:true,
   },
   username: {
     type: String,
   },
   role: {
     type: String,
-    enum: ROLES,
+    enum: ROLE,
     required: function (this: IUser) {
       return !this.googleId;
     },
