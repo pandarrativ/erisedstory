@@ -23,3 +23,22 @@ http://localhost:${PORT}/api-docs
 ```
 
 <br>
+
+## Dev History
+Active branch:
+```
+dev-be-0511
+```
+
+Archived branches:
+```
+archive/dev-be-0226
+archive/dev-be-0304
+archive/dev-be-0322
+archive/dev-be-0331
+```
+
+An example to restore an archived branch from a tag:
+```
+git checkout -b dev-be-0331 archive/dev-be-0331
+```
