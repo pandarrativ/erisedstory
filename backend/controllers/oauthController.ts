@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { Strategy } from 'passport-google-oauth20';
 import { IUser, UserModel } from '../models/user';
-import ERRORS from '../utils/errors';
+import ERRORS from '../errors';
 
 const PORT = process.env.PORT;
 const OAUTH_CLIENT_ID = process.env.OAUTH_CLIENT_ID;
@@ -26,26 +26,26 @@ const oauthController = {
     passport.authenticate('google', { failureRedirect: '/login' })(req, res, async (err: any) => {
       if (err) {
         console.log(err);
-        res.status(400).json({ message: ERRORS.GOOGLE_OAUTH_FAILED });
+        res.status(400).json({ error: ERRORS.GOOGLE_OAUTH_FAILED });
         return;
       }
 
       if (!req.user) {
-        res.status(400).json({ message: ERRORS.GOOGLE_OAUTH_FAILED });
+        res.status(400).json({ error: ERRORS.GOOGLE_OAUTH_FAILED });
         return;
       }
 
       try {
-        const user = await UserModel.findById((req.user as IUser)._id);
+        const user = await UserModel.findById((req.user as IUser).id);
         if (!user) {
-          res.status(404).json({ message: ERRORS.USER_NOT_FOUND });
+          res.status(404).json({ error: ERRORS.USER_NOT_FOUND });
           return;
         }
 
         const state = JSON.parse(req.query.state as string || '{}');
         const { role } = state;
         if (!role && !user.role) {
-          res.status(400).json({ message: ERRORS.ROLE_REQUIRED });
+          res.status(400).json({ error: ERRORS.ROLE_REQUIRED });
           return;
         }
         if (role && !user.role) {
@@ -53,21 +53,21 @@ const oauthController = {
           await user.save();
         }
 
-        const token = jwt.sign({ userId: user._id }, JWT_SECRET_KEY!, {
+        const token = jwt.sign({ userId: user.id }, JWT_SECRET_KEY!, {
           expiresIn: JWT_LIFETIME,
         });
         res.cookie('token', token, { httpOnly: true });
         res.json({
-          _id: user._id,
+          id: user.id,
           username: user.username,
           email: user.email,
           googleId: user.googleId,
           role: user.role,
           createdAt: user.createdAt,
         });
-      } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: ERRORS.INTERNAL_SERVER_ERROR });
+      } catch (err: any) {
+        console.log(err);
+        res.status(500).json({ message: err.message || err.toString() });
       }
     });
   },
@@ -96,6 +96,7 @@ export function configureOauthPassport() {
           }
           done(null, user);
         } catch (err: any) {
+          console.log(err);
           done(err);
         }
       }
@@ -114,6 +115,7 @@ export function configureOauthPassport() {
       }
       done(null, user);
     } catch (err) {
+      console.log(err);
       done(err);
     }
   });

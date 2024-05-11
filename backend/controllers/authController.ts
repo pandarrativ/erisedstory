@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
 import { IUser, UserModel } from '../models/user';
-import ERRORS from '../utils/errors';
+import ERRORS from '../errors';
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const JWT_LIFETIME = process.env.JWT_LIFETIME;
@@ -18,13 +18,13 @@ const authController = {
         acc[error.path] = error.msg;
         return acc;
       }, {});
-      res.status(400).json({ message: formattedErrors });
+      res.status(400).json({ error: ERRORS.INVALID_VALUE, message: formattedErrors });
       return;
     }
 
     const emailAlreadyRegistered = await UserModel.findOne({ email });
     if (emailAlreadyRegistered) {
-      res.status(409).json({ message: ERRORS.EMAIL_IN_USE });
+      res.status(409).json({ error: ERRORS.EMAIL_IN_USE });
       return;
     }
 
@@ -33,7 +33,7 @@ const authController = {
       const token = createJWT(user);
       res.cookie('token', token, { httpOnly: true, secure: true });
       res.status(201).json({
-        _id: user._id,
+        id: user.id,
         username: user.username,
         email: user.email,
         role: user.role,
@@ -45,11 +45,11 @@ const authController = {
         for (const field in err.errors) {
           validationErrors[field] = (err.errors[field] as any).message;
         }
-        res.status(400).json({ messages: validationErrors });
+        res.status(400).json({ error: ERRORS.INVALID_VALUE, message: validationErrors });
         return;
       }
       console.log(err);
-      res.status(500).json({ message: err.toString() });
+      res.status(500).json({ error: err.error || '', message: err.message || err.toString() });
     }
   },
 
@@ -62,31 +62,31 @@ const authController = {
         acc[error.path] = error.msg;
         return acc;
       }, {});
-      res.status(400).json({ messages: formattedErrors });
+      res.status(400).json({ error: ERRORS.INVALID_VALUE, message: formattedErrors });
       return;
     }
 
     try {
       const user = await UserModel.findOne({ email });
       if (!user) {
-        res.status(401).json({ message: ERRORS.EMAIL_NOT_REGISTERED });
+        res.status(401).json({ error: ERRORS.EMAIL_NOT_REGISTERED });
         return;
       }
 
       if (!user.hashedPassword) {
-        res.status(401).json({ message: ERRORS.GOOGLE_OAUTH_LOGIN });
+        res.status(401).json({ error: ERRORS.GOOGLE_OAUTH_LOGIN });
         return;
       }
 
       const passwordMatch = await bcrypt.compare(password, user.hashedPassword);
       if (!passwordMatch) {
-        res.status(401).json({ message: ERRORS.INCORRECT_PASSWORD });
+        res.status(401).json({ error: ERRORS.INCORRECT_PASSWORD });
         return;
       }
       const token = createJWT(user);
       res.cookie('token', token, { httpOnly: true });
       res.json({
-        _id: user._id,
+        id: user.id,
         username: user.username,
         email: user.email,
         role: user.role,
@@ -94,7 +94,7 @@ const authController = {
       });
     } catch (err: any) {
       console.log(err);
-      res.status(500).json({ message: err.toString() });
+      res.status(500).json({ error: err.error || '', message: err.message || err.toString() });
     }
   },
 
@@ -120,7 +120,7 @@ async function createUser(email: string, password: string, role: string) {
 }
 
 function createJWT(user: IUser) {
-  return jwt.sign({ userId: user._id, role: user.role }, JWT_SECRET_KEY!, {
+  return jwt.sign({ userId: user.id, role: user.role }, JWT_SECRET_KEY!, {
     expiresIn: JWT_LIFETIME,
   });
 }
