@@ -1,0 +1,24 @@
+declare const ERRORS: {
+    ROLE_REQUIRED: string;
+    INVALID_ROLE: string;
+    EMAIL_REQUIRED: string;
+    INVALID_EMAIL: string;
+    EMAIL_IN_USE: string;
+    EMAIL_NOT_REGISTERED: string;
+    PASSWORD_REQUIRED: string;
+    PASSWORD_LENGTH: string;
+    CONFIRM_PASSWORD_REQUIRED: string;
+    PASSWORDS_MISMATCH: string;
+    INCORRECT_PASSWORD: string;
+    ACCESS_FORBIDDEN: string;
+    UNAUTHENTICATED: string;
+    USER_NOT_FOUND: string;
+    USER_ID_REQUIRED: string;
+    USER_ROLE_EXIST: string;
+    INVALID_JWT_TOKEN: string;
+    GOOGLE_OAUTH_LOGIN: string;
+    GOOGLE_OAUTH_FAILED: string;
+    INTERNAL_SERVER_ERROR: string;
+    INVALID_REDIRECT: string;
+};
+export default ERRORS;
