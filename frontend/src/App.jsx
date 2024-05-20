@@ -2,6 +2,7 @@ import './App.css';
 import axios from 'axios';
 import Routers from './router';
 import { useSelector } from 'react-redux';
+import MessageModal from './components/MessageModal/MessageModal';
 
 
 
@@ -16,6 +17,8 @@ function App() {
   return (
     <div className={`App ${theme}`}>
         <Routers></Routers>
+
+        <MessageModal/>
     </div>
   );
 }

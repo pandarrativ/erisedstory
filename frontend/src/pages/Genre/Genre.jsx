@@ -8,6 +8,12 @@ import Arrow from '../../assets/imgs/Arrow.png'
 function Genre(props) {
     const navigate = useNavigate();
 
+    const nextPage = (e) => {
+        e.preventDefault();
+
+        navigate("/story");
+    }
+
     return(
         
         <div className='genre'>
@@ -36,7 +42,7 @@ function Genre(props) {
                     </div>
                 </div>
 
-                <img src= {Arrow} alt="genre bg" className='genre-arrow' onClick={() => navigate("/Story")}></img>
+                <img src= {Arrow} alt="genre bg" className='genre-arrow' onClick={nextPage}></img>
             </div>
         
         </div>

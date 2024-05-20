@@ -14,38 +14,13 @@ import Arrow from '../../assets/imgs/Arrow.png';
 
 function Welcome() {
     const navigate = useNavigate();
-    // const [showModal, setshowModal] = useState(false);
-    // const [isLogin, setIsLogin] = useState(true);
-
-    // const handleLogin = () => {
-    //     setshowModal(false);
-    //     navigate("/Learning");
-    // };
 
     return (
         <div className='welcome'>
             <div className='welcome-top'>
                 <img src= {Welcome_title} alt="welcome title" className='welcome-title'></img>
-                <img src= {Arrow} alt="arrow" className='arrow'></img>
+                <button onClick={() => navigate("/learning")}><img src= {Arrow} alt="arrow" className='arrow'></img></button>
             </div>
-
-            {/* {showModal && (
-                <Modal onClose={() => setshowModal(false)}>
-                    {isLogin ? (
-                        <Login onLogin={handleLogin} />
-                    ) : (
-                        <Register onRegister={handleLogin} />
-                    )}
-                    <button onClick={() => setIsLogin(!isLogin)}>
-                        {isLogin ? "Switch to Register" : "Switch to Login"}
-                    </button>
-                </Modal>
-            )} */}
-
-            {/* <div className='welcome-bottom'>
-                <img src= {saga_agent} alt="asga agent" className='saga-agent'></img>
-            </div> */}
-
         </div>
     );
 }
