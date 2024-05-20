@@ -14,6 +14,7 @@ const ERRORS = {
   UNAUTHENTICATED: 'unauthenticated',
   USER_NOT_FOUND: 'userNotFound',
 
+  INVALID_VALUE: 'invalidValue',
   INVALID_JWT_TOKEN: 'invalidJWTToken',
   GOOGLE_OAUTH_LOGIN: 'googleOAuthLogin',
   GOOGLE_OAUTH_FAILED: 'googleOAuthFailed',

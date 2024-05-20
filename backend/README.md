@@ -24,56 +24,21 @@ http://localhost:${PORT}/api-docs
 
 <br>
 
-## 2 APIs
-`/api/v1`
-### auth
-| Method | Route | Role access |
-|----|---|---|
-| `POST` | `/auth/register` | All (`admin` registration will be restricted later) |
-| `POST` | `/auth/login` | All |
-| `POST` | `/auth/logout` | All |
-| `GET` | `/auth/google` | All |
+## Dev History
+Active branch:
+```
+dev-be-0511
+```
 
----------------------Draft--------------------------
+Archived branches:
+```
+archive/dev-be-0226
+archive/dev-be-0304
+archive/dev-be-0322
+archive/dev-be-0331
+```
 
-### user
-| Method | Route | Role access |
-|----|---|---|
-| `GET`, `PUT`, `PATCH` | `/user/info` | All |
-
---- 
-### survey
-| Method | Route | Role access |
-|----|---|---|
-
-### kid
-| Method | Route | Role access |
-|----|---|---|
-| `GET`, `POST` | `/kid` | `parent` |
-| `PUT`, `PATCH` | `/kid/profile` | `parent` |
-
-### story
-| Method | Route | Role access |
-|----|---|---|
-| `GET`, `POST` | `/stories` | `parent` |
-| `GET`, `DELETE` | `/stories/:id` | `parent` |
-
---- 
-
-### educator
-| Method | Route | Role Access |
-|----|---|---|
-| `GET`, `POST`,`PUT`, `PATCH` | `/educator/profile` | `educator` |
-| `GET` | `/educator/kids` | `educator` |
-| `GET` | `/educator/kids/:id` | `educator` |
-
---- 
-### admin
-| Method | Route | Role Access |
-|----|---|---|
-| `GET` | `/admin/parents` | `admin` |
-| `GET`, `PATCH` | `/admin/parents/:id` | `admin` |
-| `GET` | `/admin/educators` | `admin` |
-| `GET`, `PATCH` | `/admin/educators/:id` | `admin` |
-| `GET` | `/admin/kids` | `admin` |
-| `GET`, `PATCH` | `/admin/kids/:id` | `admin` |
+An example to restore an archived branch from a tag:
+```
+git checkout -b dev-be-0331 archive/dev-be-0331
+```

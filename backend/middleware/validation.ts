@@ -1,13 +1,13 @@
 import { body } from 'express-validator';
 import ERRORS from '../errors';
-import { ROLES } from '../models/user';
+import { ROLE } from '../models/user';
 
 export function validateRegisterInputs() {
   return [
     body('role')
       .notEmpty()
       .withMessage(ERRORS.ROLE_REQUIRED)
-      .isIn(ROLES)
+      .isIn(Object.values(ROLE))
       .withMessage(ERRORS.INVALID_ROLE),
     body('email')
       .notEmpty()
