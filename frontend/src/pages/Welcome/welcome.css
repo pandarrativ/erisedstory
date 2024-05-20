@@ -1,0 +1,41 @@
+.welcome {
+    background-image: url('../../assets/imgs/Train_img.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 100vh; 
+}
+
+.welcome-top {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.welcome-top img.welcome-title {
+    max-width: 65%; 
+    padding: 0;
+}
+
+.welcome-top img.arrow {
+    position:absolute;
+    max-width: 15%;
+    bottom: -60px;
+    right: 190px;
+}
+
+.welcome-bottom {
+    display: flex;
+    justify-content: flex-end; 
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    margin: 20px;
+}
+
+img.saga-agent {
+    max-width: 40%;
+}
