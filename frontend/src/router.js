@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import Welcome from './pages/Welcome';
-import Learning from './pages/Learning';
-import Genre from './pages/Genre';
-import Story from './pages/Story';
-import Game from './pages/Game';
+import Welcome from './pages/Welcome/Welcome';
+import Learning from './pages/Learning/Learning';
+import Genre from './pages/Genre/Genre';
+import Story from './pages/Story/Story';
+import Game from './pages/Game/Game';
 
 const ProtectedRoute = ({ isAuthenticated, children }) => {
     if (!isAuthenticated) {

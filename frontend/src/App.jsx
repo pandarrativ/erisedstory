@@ -1,22 +1,23 @@
 import './App.css';
-import "./assets/css/color.css";
-import "./assets/css/font.css";
-import React, { useEffect } from 'react';
+import axios from 'axios';
 import Routers from './router';
+import { useSelector } from 'react-redux';
 
 
 
 function App() {
-  useEffect(() => {
-    document.title = "Erised Story";
-  }, []);
-  
+  // for production
+  // axios.defaults.withCredentials = true;
+
+  const theme =  useSelector((state) => state.userSettings.theme);
 
 
-    return (
-      <Routers></Routers>
-    );
-  
+
+  return (
+    <div className={`App ${theme}`}>
+        <Routers></Routers>
+    </div>
+  );
 }
 
 export default App;
