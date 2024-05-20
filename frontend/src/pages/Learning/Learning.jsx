@@ -7,15 +7,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { storyActions } from "../../reducers/StorySlice";
 import { showMessageDialog } from "../../utils/modalUtils";
 
+const learningGoals = [
+    "Emotional Regulation", "Empathy ", "Self-Esteem", 
+    "Confidence", "Conflict Resolution", "Tolerance"
+];
+
 function Learning(props) {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const learning_goal = useSelector((state) => state.story.learning_goal);
 
-    const learningGoals = [
-        "Emotional Regulation", "Empathy ", "Self-Esteem", 
-        "Confidence", "Conflict Resolution", "Tolerance"
-    ];
     
     const nextPage = (e) => {
         e.preventDefault();
@@ -24,7 +25,7 @@ function Learning(props) {
             showMessageDialog("Opps!", "Please select a learning goal first!")
             return;
         }
-        navigate("/genre");
+        navigate("/trait");
     }
 
     const onClickLearningGoal = (goal) => {

@@ -28,7 +28,7 @@ export default function Routers(){
             </ProtectedRoute>}>
           </Route>
 
-          <Route path="/genre" element={
+          <Route path="/trait" element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
             <Genre/>
             </ProtectedRoute>}>

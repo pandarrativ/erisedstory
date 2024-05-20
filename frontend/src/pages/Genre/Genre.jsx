@@ -2,47 +2,53 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Genre.css"
 import genre_bg from '../../assets/imgs/Genre_bg.png'
-import rectangle from '../../assets/imgs/Rectangle.png'
 import Arrow from '../../assets/imgs/Arrow.png'
+import { useSelector, useDispatch } from 'react-redux';
+import { storyActions } from "../../reducers/StorySlice";
+import { showMessageDialog } from "../../utils/modalUtils";
+
+
+const traits = ["Extraversion", "Agreeableness", "Conscientiousness", "Neuroticism", "Openness"]
 
 function Genre(props) {
     const navigate = useNavigate();
 
+    const dispatch = useDispatch();
+    const personality_trait = useSelector((state) => state.story.personality_trait);
+
+    
     const nextPage = (e) => {
         e.preventDefault();
 
+        if(!personality_trait){
+            showMessageDialog("Opps!", "Please select a personality trait first!")
+            return;
+        }
         navigate("/story");
+    }
+
+    const onClickTrait = (goal) => {
+        dispatch(storyActions.setSageTrait(goal))
     }
 
     return(
         
-        <div className='genre'>
+        <div className='genre min-w-[500px]'>
             <img src= {genre_bg} alt="genre bg" className='genre-bg'></img>
 
-            <div className='genre-contain'>
+            <div className='flex flex-col justify-between z-3 absolute w-3/4 mx-auto'>
+                <div className='text-h2 font-semibold mt-12'>Pick a Big Five personality trait for your sage agent!</div>
 
-                <div className='genre-cards'>
-                    <div className='genre-card1'>
-                        <div className='genre-card-title'>genre 1</div>
-                        <img src= {rectangle} alt="genre bg" className='genre-card-img'></img>
-                    </div>
+                <div className='genre-cards grid grid-cols-2 gap-y-4 gap-x-8 mx-auto mt-8'>
+                    {
+                        traits.map((item, i) => {
+                            return <div className='flex items-center justify-center'><button className={`btn trait-card ${personality_trait === item && "selected-trait"}`} key={i} onClick={() => onClickTrait(item)}>{item}</button></div>
+                        })
+                    }
 
-                    <div className='genre-card2'>
-                        <div className='genre-card-title'>genre 2</div>
-                        <img src= {rectangle} alt="genre bg" className='genre-card-img'></img>
-                    </div>
-
-                    <div className='genre-card3'>
-                        <div className='genre-card-title'>genre 3</div>
-                        <img src= {rectangle} alt="genre bg" className='genre-card-img'></img>
-                    </div>
-
-                    <div className='genre-card4'>
-                        <div className='genre-card-title'>+create your own</div>
-                    </div>
                 </div>
 
-                <img src= {Arrow} alt="genre bg" className='genre-arrow' onClick={nextPage}></img>
+                <button className='w-[200px] mx-auto'><img src= {Arrow} alt="genre bg" className='genre-arrow' onClick={nextPage}></img></button>
             </div>
         
         </div>
