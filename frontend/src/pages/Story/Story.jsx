@@ -1,32 +1,23 @@
+import axios from "axios";
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import "./story.css";
+import { storyRouter } from "../../configs/URL";
+
+import { useSelector, useDispatch } from 'react-redux';
+import { storyActions } from "../../reducers/StorySlice";
+import { concateStory } from "../../utils/utils";
 
 function Story() {
-
-    const navigate = useNavigate();
-    // const [storyText, setStoryText] = useState("");
-    // const [stroyReady, setStoryReady] = useState(false);
-
-    const storyText = "In a small, cozy village where everyone knew each other's names,there was a young boy named Alex who had a special pair of glasses that allowed him to see the world through the eyes of others. One sunny day, he stumbled upon a sad, lonely cat stuck in a tall tree, feeling scared and wishing for a friend to understand its fear."
-
-    // todo: fetch story from backend
-
-    // useEffect(() => {
-    //     // Delay the display of the story after the user lands on the page
-    //     const storyDisplayTimeout = setTimeout(() => {
-    //       generateStory();
-    //       setStoryReady(true);
-    //     }, 3000); // 3 seconds delay before showing the story
-    
-    //     return () => clearTimeout(storyDisplayTimeout);
-    //   }, []);
+    const dispatch = useDispatch();
+    // const current_task = useSelector((state) => state.story.current_task);
+    const storyPlayData = useSelector((state) => state.story.storyPlayData);
+    const storyText = storyPlayData[storyPlayData.length - 1].story;
 
 
     useEffect(() => {
 
         const sentences = storyText.match(/[^\.!\?]+[\.!\?]+/g) || [];
-
+        
         const readSentence = (sentence, isLast) => {
             const utterance = new SpeechSynthesisUtterance(sentence);
         
@@ -34,7 +25,7 @@ function Story() {
                 utterance.onend = () => {
 
                     setTimeout(() => {
-                        navigate("/Game");
+                        loadAndShowPaths();
                     }, 1000);
                 };
             }
@@ -51,7 +42,29 @@ function Story() {
         return () => {
             window.speechSynthesis.cancel();
         };
-        }, [navigate]);
+        }, []);
+
+        const loadAndShowPaths = () => {
+            axios.post(storyRouter, {
+                story: concateStory(storyPlayData)
+            })
+            .then((resp) => {
+                console.log(resp.data);
+                dispatch(storyActions.updateStoryPlayData({
+                    path_1: resp.data.path_1,
+                    path_2: resp.data.path_2,
+                    path_3: resp.data.path_3,
+
+                }))
+            })
+            .then(() => {
+                dispatch(storyActions.setCurrentTask("PATH"));
+            })
+            .catch((e) => console.log(e));
+
+            // dispatch(storyActions.setCurrentTask("PATH"));
+            // setCurrentTask("PATH");
+        }
 
 
     return(

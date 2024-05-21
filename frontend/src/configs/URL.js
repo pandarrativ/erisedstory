@@ -10,8 +10,8 @@ const host = process.env.REACT_APP_BACKEND_HOST;
 const userHost = process.env.REACT_APP_USER_HOST;
 
 export const storyRouter = `${host}/erised/story`;
-export const newStoryPlayRouter = `${host}/erised/story-playdata`;
-export const allStoryPlayRouter = `${host}/erised/all-playdata`;
+// export const newStoryPlayRouter = `${host}/erised/story-playdata`;
+// export const allStoryPlayRouter = `${host}/erised/all-playdata`;
 export const sageConversationRouter = `${host}/erised/sage-conversation`;
 
 

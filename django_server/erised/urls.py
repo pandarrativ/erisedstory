@@ -3,5 +3,5 @@ from .views import *
 
 
 urlpatterns = [
-    # path("story", StoryPlayApiView.as_view()),
+    path("story", StoryPlayApiView.as_view()),
 ]

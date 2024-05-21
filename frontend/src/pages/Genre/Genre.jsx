@@ -24,7 +24,9 @@ function Genre(props) {
             showMessageDialog("Opps!", "Please select a personality trait first!")
             return;
         }
-        navigate("/story");
+
+        dispatch(storyActions.initStoryPlay());
+        navigate("/main");
     }
 
     const onClickTrait = (goal) => {
@@ -42,7 +44,7 @@ function Genre(props) {
                 <div className='genre-cards grid grid-cols-2 gap-y-4 gap-x-8 mx-auto mt-8'>
                     {
                         traits.map((item, i) => {
-                            return <div className='flex items-center justify-center'><button className={`btn trait-card ${personality_trait === item && "selected-trait"}`} key={i} onClick={() => onClickTrait(item)}>{item}</button></div>
+                            return <div className='flex items-center justify-center' key={i}><button className={`btn trait-card ${personality_trait === item && "selected-trait"}`} onClick={() => onClickTrait(item)}>{item}</button></div>
                         })
                     }
 
