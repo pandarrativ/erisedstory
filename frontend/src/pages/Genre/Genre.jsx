@@ -25,7 +25,8 @@ function Genre(props) {
             return;
         }
 
-        dispatch(storyActions.initStoryPlay());
+        // temporily commented it
+        // dispatch(storyActions.initStoryPlay());
         navigate("/main");
     }
 

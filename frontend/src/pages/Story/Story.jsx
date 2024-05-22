@@ -15,10 +15,10 @@ function Story() {
 
 
     useEffect(() => {
-
         const sentences = storyText.match(/[^\.!\?]+[\.!\?]+/g) || [];
         
         const readSentence = (sentence, isLast) => {
+
             const utterance = new SpeechSynthesisUtterance(sentence);
         
             if (isLast) {
@@ -26,7 +26,7 @@ function Story() {
 
                     setTimeout(() => {
                         loadAndShowPaths();
-                    }, 1000);
+                    }, 500);
                 };
             }
             
@@ -42,29 +42,30 @@ function Story() {
         return () => {
             window.speechSynthesis.cancel();
         };
-        }, []);
+    }, []);
 
-        const loadAndShowPaths = () => {
-            axios.post(storyRouter, {
-                story: concateStory(storyPlayData)
-            })
-            .then((resp) => {
-                console.log(resp.data);
-                dispatch(storyActions.updateStoryPlayData({
-                    path_1: resp.data.path_1,
-                    path_2: resp.data.path_2,
-                    path_3: resp.data.path_3,
+    const loadAndShowPaths = () => {
+        // temporily disable it
+        // axios.post(storyRouter, {
+        //     story: concateStory(storyPlayData)
+        // })
+        // .then((resp) => {
+        //     console.log(resp.data);
+        //     dispatch(storyActions.updateStoryPlayData({
+        //         path_1: resp.data.path1,
+        //         path_2: resp.data.path2,
+        //         path_3: resp.data.path3,
 
-                }))
-            })
-            .then(() => {
-                dispatch(storyActions.setCurrentTask("PATH"));
-            })
-            .catch((e) => console.log(e));
+        //     }))
+        // })
+        // .then(() => {
+        //     dispatch(storyActions.setCurrentTask("PATH"));
+        // })
+        // .catch((e) => console.log(e));
 
-            // dispatch(storyActions.setCurrentTask("PATH"));
-            // setCurrentTask("PATH");
-        }
+        dispatch(storyActions.setCurrentTask("PATH"));
+        // setCurrentTask("PATH");
+    }
 
 
     return(

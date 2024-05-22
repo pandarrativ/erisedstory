@@ -3,6 +3,8 @@ import Game from "../Game/Game";
 import { useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from 'react-redux';
+import SageAgent from "../../components/SageAgent/SageAgent";
+import { useState } from "react";
 
 
 function Main() {
@@ -12,12 +14,18 @@ function Main() {
     const personality_trait = useSelector((state) => state.story.personality_trait);
     const current_task = useSelector((state) => state.story.current_task);
 
+    const [sageMesages, setSageMessages] = useState([]);
+    const getSageMessages = () => {
+        return "aad";
+    }
+
+
 
     const renderPage = () => {
         if(current_task === "STORY"){
             return  <Story></Story>;
         }else if(current_task === "PATH"){
-            return  <Game></Game>
+            return  <Game sageMessages={sageMesages} dispatchUserSageMessage={setSageMessages} getSageMessage={getSageMessages}></Game>
         }
     }
 
@@ -25,6 +33,8 @@ function Main() {
     return ( 
         <div className="main">
             {renderPage()}
+
+            <SageAgent sageMessages={sageMesages} dispatchUserSageMessage={setSageMessages} getSageMessage={getSageMessages}/>
         </div>
      );
 }

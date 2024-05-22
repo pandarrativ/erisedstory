@@ -16,7 +16,7 @@ def get_paths(req):
 
     messages = [
         {"role":"system", "content":"You are a story writting assistant. Your task is to help users writing his story."},
-        {"role":"system", "content": """This is the story that the users have written: {{{story}}}. Based on the current story, create three possible paths for the plot to continue, with each path option being within 15 words. Return your response in the following JSON format, with each key double-quoted: {{"path1":STRING, "path2":STRING, "path3":STRING}}.""".format(story=story)},
+        {"role":"system", "content": """This is the story that the users have written: {{{story}}}. Based on the current story, create three possible paths for the plot to continue, with each path option being within 5 words. Return your response in the following JSON format, with each key double-quoted: {{"path1":STRING, "path2":STRING, "path3":STRING}}.""".format(story=story)},
     ]  
 
     # resp = OllamaAPI.send_messages(messages=messages)

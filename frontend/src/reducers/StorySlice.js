@@ -12,10 +12,11 @@ export const storySlice = createSlice({
         current_task: "STORY",
         storyPlayData: [
           {
-            "story": "In a small, cozy village where everyone knew each other's names,there was a young boy named Alex who had a special pair of glasses that allowed him to see the world through the eyes of others. One sunny day, he stumbled upon a sad, lonely cat stuck in a tall tree, feeling scared and wishing for a friend to understand its fear.",
-            "path_1": "",
-            "path_2": "",
-            "path_3": "",
+            "story": "Once upon a time in a small, sunny village, there lived a curious squirrel named Sammy. Sammy loved exploring the forest and discovering new adventures. One day, while searching for the biggest acorn, Sammy found a shiny, golden key hidden under a pile of colorful autumn leaves. Sammy wondered what the key might unlock and decided to embark on a journey to uncover its mystery. Along the way, Sammy met friendly animals who shared stories of a magical, hidden treehouse deep in the heart of the forest, known only to those with the golden key.",
+            // "story":  `Sammy hopped along the forest path and suddenly, an owl hooted, "Hello there!" Sammy stopped and looked up. "Did you just talk?" asked Sammy. The owl nodded. "Yes, I'm Ollie, the talking owl. I know about the golden key. Follow me, and I'll show you the way!" Sammy smiled excitedly and followed Ollie. Along the way, they met a clever raccoon named Ricky and a wise turtle named Tilly. Together, they shared stories, helped each other, and learned new things on their adventure.`,
+            "path_1": "Sammy follows a glowing trail.",
+            "path_2": "Sammy meets a talking owl.",
+            "path_3": "Sammy discovers a hidden map.",
             "path_selected": "",
           }
         ],     
@@ -23,7 +24,7 @@ export const storySlice = createSlice({
   reducers: {
     initStoryPlay: (state, action) => {
       state.storyPlayData.push({
-        "story": "In a small, cozy village where everyone knew each other's names,there was a young boy named Alex who had a special pair of glasses that allowed him to see the world through the eyes of others. One sunny day, he stumbled upon a sad, lonely cat stuck in a tall tree, feeling scared and wishing for a friend to understand its fear.",
+        "story": `Sammy hopped along the forest path and suddenly, an owl hooted, "Hello there!" Sammy stopped and looked up. "Did you just talk?" asked Sammy. The owl nodded. "Yes, I'm Ollie, the talking owl. I know about the golden key. Follow me, and I'll show you the way!" Sammy smiled excitedly and followed Ollie. Along the way, they met a clever raccoon named Ricky and a wise turtle named Tilly. Together, they shared stories, helped each other, and learned new things on their adventure.`,
         "path_1": "",
         "path_2": "",
         "path_3": "",
@@ -59,6 +60,8 @@ export const storySlice = createSlice({
       state.current_task = action.payload;
     },
     updateStoryPlayData: (state, action) => {
+      console.log(action.payload);
+
       if(action.payload.path_1) state.storyPlayData[state.storyPlayData.length - 1].path_1 = action.payload.path_1;
       if(action.payload.path_2) state.storyPlayData[state.storyPlayData.length - 1].path_2 = action.payload.path_2;
       if(action.payload.path_3) state.storyPlayData[state.storyPlayData.length - 1].path_3 = action.payload.path_3;

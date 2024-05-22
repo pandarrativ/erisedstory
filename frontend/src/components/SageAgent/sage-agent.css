@@ -135,27 +135,27 @@
 
 /* imgs */
 .widget-img-box{
-    height: 80px;
-    width: 80px;
+    /* height: 80px; */
+    width: 160px;
 }
 .widget-img-box img{
-    border-radius: 10000px;
+    /* border-radius: 10000px; */
 }
 
 .widget-chat-icon-box{
-    height: 35px;
-    width: 35px;
+    /* height: 35px; */
+    width: 60px;
 }
 .widget-chat-icon-box img{
-    border-radius: 10000px;
+    /* border-radius: 10000px; */
 }
 
 .widget-chat-top-box{
-    height: 75px;
-    width: 75px;
+    /* height: 75px; */
+    width: 60px;
 }
 .widget-chat-top-box img{
-    border-radius: 10000px;
+    /* border-radius: 10000px; */
 }
 
 
@@ -176,5 +176,27 @@
     width: 25px;
 }
 .widget-profile img{
-    border-radius: 10000px;
+    /* border-radius: 10000px; */
+}
+
+
+.bg-dec1-full{
+    background-color: #ffe5d9;
+}
+.bg-dec2-1{
+    background-color: #f8edeb;
+}
+.sage_modal-title{
+    color: #5d3fd3;
+    font-size: 1.75rem;
+}
+.sage_modal-box{
+    background-color: #faeff8;
+}
+
+.sage_modal-btn{
+    background-color: #ebd1fc;
+}
+.sage_modal-btn:hover{
+    background-color: #d19afb;
 }
