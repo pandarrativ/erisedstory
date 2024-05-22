@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import pd1 from "../assets/temp/pd1.jpg";
+import sage from "../assets/imgs/saga_agent.png";
 
 export const userSettingsSlice = createSlice({
   name: 'userSettings',
@@ -7,7 +7,7 @@ export const userSettingsSlice = createSlice({
     username:"",
     uid:"",
     theme: "theme-1",
-    sage: {sageName:"Panda 1", sageImage:pd1},
+    sage: {sageName:"Sage Agent", sageImage:sage},
   },
   reducers: {
     setUserProfile: (state, action) => {

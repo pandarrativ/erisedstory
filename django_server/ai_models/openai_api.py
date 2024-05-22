@@ -1,9 +1,6 @@
 from openai import OpenAI
 import os
-import requests
-from PIL import Image
-from io import BytesIO
-import base64
+
 
 #This class contains the functions to send request to openai for text generation,image generation
 
@@ -41,7 +38,6 @@ class OpenAIAPI:
                 messages=messages
             )
         else:
-            print("asd")
             response = OpenAIAPI.client.chat.completions.create(
                 model= model, 
                 messages=messages

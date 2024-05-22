@@ -3,8 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Welcome from './pages/Welcome/Welcome';
 import Learning from './pages/Learning/Learning';
 import Genre from './pages/Genre/Genre';
-import Story from './pages/Story/Story';
-import Game from './pages/Game/Game';
+import Main from './pages/Main/Main';
 
 const ProtectedRoute = ({ isAuthenticated, children }) => {
     if (!isAuthenticated) {
@@ -34,7 +33,13 @@ export default function Routers(){
             </ProtectedRoute>}>
           </Route>
 
-          <Route path="/story" element={
+          <Route path="/main" element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Main/>
+            </ProtectedRoute>}>
+          </Route> 
+
+          {/* <Route path="/story" element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
                 <Story/>
             </ProtectedRoute>}>
@@ -44,7 +49,7 @@ export default function Routers(){
             <ProtectedRoute isAuthenticated={isAuthenticated}>
             <Game/>
             </ProtectedRoute>}>
-          </Route>
+          </Route> */}
         </Routes>
       </BrowserRouter>
     )

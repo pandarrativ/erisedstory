@@ -30,7 +30,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Arial', sans-serif;
-    font-size: 3em;
+    font-size: 2em;
     color: #F2984A;
     text-align: center;
 }
@@ -133,9 +133,6 @@
     transition: background-color 0.3s ease;
 }
 
-.game-respond button:hover {
-    background-color: #4731b6;  
-}
 
 .game-respond .game-arrow {
     width: 20%;
@@ -143,6 +140,7 @@
     position: absolute; 
     left: 85%; 
     bottom: 40%;
+    background-color: transparent;
 }
   
 
