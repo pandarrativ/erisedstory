@@ -34,3 +34,4 @@ node_modules/
 
 # vscode
 .vscode
+django_server/.env.dev
