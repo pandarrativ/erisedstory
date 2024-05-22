@@ -1,17 +1,15 @@
-import axios from "axios";
 import React, { useEffect } from "react";
 import "./story.css";
-import { storyRouter } from "../../configs/URL";
 
-import { useSelector, useDispatch } from 'react-redux';
-import { storyActions } from "../../reducers/StorySlice";
-import { concateStory } from "../../utils/utils";
 
-function Story() {
-    const dispatch = useDispatch();
-    // const current_task = useSelector((state) => state.story.current_task);
-    const storyPlayData = useSelector((state) => state.story.storyPlayData);
-    const storyText = storyPlayData[storyPlayData.length - 1].story;
+function Story({showPathPage, storyText}) {
+
+    /* Params
+    storyText: String  content to be shown
+    showPathPage: switch to show different paths
+    
+    */
+
 
 
     useEffect(() => {
@@ -25,7 +23,7 @@ function Story() {
                 utterance.onend = () => {
 
                     setTimeout(() => {
-                        loadAndShowPaths();
+                        showPathPage();
                     }, 500);
                 };
             }
@@ -43,29 +41,6 @@ function Story() {
             window.speechSynthesis.cancel();
         };
     }, []);
-
-    const loadAndShowPaths = () => {
-        // temporily disable it
-        // axios.post(storyRouter, {
-        //     story: concateStory(storyPlayData)
-        // })
-        // .then((resp) => {
-        //     console.log(resp.data);
-        //     dispatch(storyActions.updateStoryPlayData({
-        //         path_1: resp.data.path1,
-        //         path_2: resp.data.path2,
-        //         path_3: resp.data.path3,
-
-        //     }))
-        // })
-        // .then(() => {
-        //     dispatch(storyActions.setCurrentTask("PATH"));
-        // })
-        // .catch((e) => console.log(e));
-
-        dispatch(storyActions.setCurrentTask("PATH"));
-        // setCurrentTask("PATH");
-    }
 
 
     return(
