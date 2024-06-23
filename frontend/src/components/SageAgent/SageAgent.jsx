@@ -71,12 +71,14 @@ function SageAgent({sageMessages, dispatchUserSageMessage, getSageMessage}) {
                     </div>
 
                     {sageMessages.map((item, i) => {
-                        return (
-                            <div className='widget-message-box' key={i}>
-                                <SageChatMessage fromMe={item.role === "user"} profile={sage.sageImage} content={item.content} ></SageChatMessage>
-                            </div>
-
-                        );
+                        if (item.role !== "system"){
+                            return (
+                                <div className='widget-message-box' key={i}>
+                                    <SageChatMessage fromMe={item.role === "user"} profile={sage.sageImage} content={item.content} ></SageChatMessage>
+                                </div>
+    
+                            );
+                        } 
                     })}
                     
                     <div ref={messagesEndRef} />

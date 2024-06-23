@@ -42,6 +42,10 @@ function Story({showPathPage, storyText}) {
         };
     }, []);
 
+    const finishTalking = () => {
+        showPathPage();
+    }
+
 
     return(
         <div className="story">
@@ -49,7 +53,7 @@ function Story({showPathPage, storyText}) {
             <div className="story-contain">
 
                 <div className="story-box">
-                    <div className="story-text">{storyText}</div>
+                    <button onClick={finishTalking}><div className="story-text">{storyText}</div></button>
 
                 </div>
             </div>
