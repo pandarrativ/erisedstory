@@ -18,6 +18,7 @@ export const storySlice = createSlice({
             path_2: "Sammy meets a talking owl.",
             path_3: "Sammy discovers a hidden map.",
             suggestion: "",
+            revised_story:"",
             is_suggestion_accepted:"",
             path_selected: "",
           }
@@ -31,6 +32,7 @@ export const storySlice = createSlice({
         path_2: "Sammy meets a talking owl.",
         path_3: "Sammy discovers a hidden map.",
         suggestion: "",
+        revised_story:"",
         is_suggestion_accepted:"",
         path_selected: "",
       });
@@ -72,6 +74,7 @@ export const storySlice = createSlice({
       if(action.payload.path_3) state.storyPlayData[state.storyPlayData.length - 1].path_3 = action.payload.path_3;
       
       if(action.payload.suggestion) state.storyPlayData[state.storyPlayData.length - 1].suggestion = action.payload.suggestion;
+      if(action.payload.revised_story) state.storyPlayData[state.storyPlayData.length - 1].revised_story = action.payload.revised_story;
       if(action.payload.is_suggestion_accepted) state.storyPlayData[state.storyPlayData.length - 1].is_suggestion_accepted = action.payload.is_suggestion_accepted;
 
       if(action.payload.path_selected) state.storyPlayData[state.storyPlayData.length - 1].path_selected = action.payload.path_selected;
