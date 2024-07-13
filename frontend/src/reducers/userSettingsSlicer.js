@@ -7,7 +7,7 @@ export const userSettingsSlice = createSlice({
     username:"",
     uid:"",
     theme: "theme-1",
-    sage: {sageName:"Sage Agent", sageImage:sage},
+    sage: {sageName:"AI Mentor", sageImage:sage},
   },
   reducers: {
     setUserProfile: (state, action) => {
