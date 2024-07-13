@@ -62,14 +62,14 @@
     border: 2px solid #FB9C47; 
     border-radius: 25px; 
     padding: 1rem 2rem; 
-    font-size: 1rem; 
+    font-size: 2rem; 
     color: #c37f00; 
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     text-wrap: nowrap;
-    min-height: 50px;
+    line-height: 2rem;
     margin: 20px 0;
 }
 

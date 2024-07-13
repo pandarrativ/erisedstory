@@ -5,6 +5,8 @@
     bottom: 30px;
     /* adjust your zindex accordingly */
     z-index: 7;  
+
+    font-size: 1.75rem;
 }
 
 .widget:hover,
@@ -186,9 +188,20 @@
 .bg-dec2-1{
     background-color: #f8edeb;
 }
+
+
+
+
+
+/* #sage_confirm_modal .sage_modal-box{
+    width: 900px;
+} */
+#sage_confirm_modal_content{
+    font-size: 1.75rem;
+}
 .sage_modal-title{
     color: #5d3fd3;
-    font-size: 1.75rem;
+    font-size: 2rem;
 }
 .sage_modal-box{
     background-color: #faeff8;
@@ -196,7 +209,18 @@
 
 .sage_modal-btn{
     background-color: #ebd1fc;
+    font-size: 1.5rem;
+    border-radius: 20px;
+    padding: 0.5rem 0.8rem;
+    /* width: 400px; */
 }
 .sage_modal-btn:hover{
     background-color: #d19afb;
+}
+
+.sage_modal-btn:first-child{
+    background-color: #d39cfa;
+}
+.sage_modal-btn:first-child:hover{
+    background-color: #ad56ef;
 }

@@ -1,15 +1,15 @@
 import "./Learning.css"
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import learning_title from '../../assets/imgs/Learning_title.png';
+import learning_title from '../../assets/imgs/Learning_title.svg';
 import Arrow from '../../assets/imgs/Arrow.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { storyActions } from "../../reducers/StorySlice";
 import { showMessageDialog } from "../../utils/modalUtils";
 
 const learningGoals = [
-    "Emotional Regulation", "Empathy ", "Self-Esteem", 
-    "Confidence", "Conflict Resolution", "Tolerance"
+    "Social Engagement", "Cooperation", "Self-Management", 
+    "Emotional Resilience", "Innovation",
 ];
 
 function Learning(props) {
@@ -39,11 +39,11 @@ function Learning(props) {
             
             <div className='learning-goal'>
 
-                <div className='grid grid-cols-2 gap-x-8 gap-y-4 pt-8'>
+                <div className='grid grid-cols-2 gap-x-8 gap-y-4 pt-8 px-8'>
 
                     {
                         learningGoals.map((item, i) => {
-                            return <button className={`btn goal-box ${learning_goal === item && "selected-goal"}`} key={i} onClick={() => onClickLearningGoal(item)}>
+                            return <button className={` goal-box font-semibold ${learning_goal === item && "selected-goal"}`} key={i} onClick={() => onClickLearningGoal(item)}>
                                 {item}
                             </button>
                         })

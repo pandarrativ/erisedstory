@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Kodchasan", "MavenPro", "Monofett", sans-serif;
 }
 
 
@@ -27,4 +28,9 @@
 @font-face {
   font-family: "Monofett";
   src: url("./assets/fonts/Monofett/Monofett-Regular.ttf") format('ttf');
+}
+
+@font-face {
+  font-family: "Roboto_Mono";
+  src: url("./assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.ttf") format('ttf');
 }

@@ -19,13 +19,17 @@
     z-index: 0;
 
 }
+.genre-title{
+    color: #936103;
+    font-size: 3rem;
+}
+
 
 .trait-card {
     background: #F1F1F1; 
     border: 2px solid #FB9C47; 
     border-radius: 25px; 
-    padding: 1rem 2rem; 
-    font-size: 1rem; 
+    font-size: 2.25rem; 
     color: #c37f00; 
     display: flex;
     align-items: center;
@@ -34,7 +38,10 @@
     text-wrap: nowrap;
     min-height: 50px;
     margin: 20px 0;
-    width: 200px;
+    width: 400px;
+    padding: 0.5rem 2rem;
+
+
     
 }
 

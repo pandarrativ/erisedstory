@@ -39,13 +39,13 @@ function Genre(props) {
         <div className='genre min-w-[500px]'>
             <img src= {genre_bg} alt="genre bg" className='genre-bg'></img>
 
-            <div className='flex flex-col justify-between z-3 absolute w-3/4 mx-auto'>
-                <div className='text-h2 font-semibold mt-12'>Pick a Big Five personality trait for your sage agent!</div>
+            <div className='flex flex-col justify-between z-3 absolute w-3/4 mx-auto pt-32'>
+                <div className='font-bold mt-12 text-center genre-title'>Pick a Big Five personality for your AI mentor!</div>
 
-                <div className='genre-cards grid grid-cols-2 gap-y-4 gap-x-8 mx-auto mt-8'>
+                <div className='genre-cards grid grid-cols-2 gap-y-4 mx-auto mt-8'>
                     {
                         traits.map((item, i) => {
-                            return <div className='flex items-center justify-center' key={i}><button className={`btn trait-card ${personality_trait === item && "selected-trait"}`} onClick={() => onClickTrait(item)}>{item}</button></div>
+                            return <div className='flex items-center justify-center px-8' key={i}><button className={`trait-card font-semibold ${personality_trait === item && "selected-trait"}`} onClick={() => onClickTrait(item)}>{item}</button></div>
                         })
                     }
 
