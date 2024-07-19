@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./story.css";
 
 
-function Story({showPathPage, storyText}) {
+function Story({showPathPage, storyText, user_writing}) {
 
     /* Params
     storyText: String  content to be shown
@@ -18,7 +18,10 @@ function Story({showPathPage, storyText}) {
             <div className="story-contain">
 
                 <div className="story-box">
-                    <button onClick={showPathPage}><div className="story-text">{storyText}</div></button>
+                    <button onClick={showPathPage}>
+                        {user_writing && <div className="story-text-user">{user_writing}</div>}
+                        <div className="story-text">{storyText}</div>
+                    </button>
 
                 </div>
             </div>

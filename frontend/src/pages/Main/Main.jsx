@@ -6,11 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from "react";
 
-
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { storyActions } from "../../reducers/StorySlice";
-import { AIMentorRouter, sageConversationRouter, storyRouter } from "../../configs/URL";
+import { AIMentorRouter, storyRouter } from "../../configs/URL";
 import { combineStoryPlay } from "../../utils/storyPlayUtils";
 import AIMentor from "../../components/AIMentor/AIMentor";
 
@@ -25,6 +23,8 @@ function Main() {
     const personality_description = useSelector((state) => state.story.personality_description);
     const life_story = useSelector((state) => state.story.life_story);
     const is_writting = useSelector((state) => state.story.is_writting);
+    const user_writing =  useSelector((state) => state.story.user_writing);
+
 
     const current_task = useSelector((state) => state.story.current_task);
     const storyPlayData = useSelector((state) => state.story.storyPlayData);
@@ -38,17 +38,9 @@ function Main() {
         lastStorySection?.option2,
         lastStorySection?.option3,
     ]
-    const mentorSuggestion = lastStorySection?.suggestion;
-    const mentorFeedback = lastStorySection?.feedback;
-
-
 
 /////////////////////////   States  ///////////////////////////////////  
-
-    const [transcript, setTranscript] = useState("");  // also the content user writes
-    // const [is_writting, setIsWritting] = useState(false);
-    const [isActivate, setIsActivate] = useState(false);
-
+    const [transcript, setTranscript] = useState("");  
     const [showMessage, setShowMessage] = useState(false);
     const [message, setMessage] = useState(null);
 
@@ -63,7 +55,12 @@ function Main() {
     // props for Story Page
     const handleClickPath = (option) => {
         dispatch(storyActions.updateStoryPlayData({selected_option: option}));
-        dispatch(storyActions.setIsWritting(true));
+        
+        // to be removed
+        setTimeout(() => {
+            dispatch(storyActions.setIsWritting(true));
+        }, 3 * 1000);
+        // dispatch(storyActions.setIsWritting(true));
     }
 
     const handleSendInput = async() => {
@@ -145,6 +142,7 @@ function Main() {
             })
             .then((resp2) => {
                 console.log(resp2.data);
+                dispatch(storyActions.setUserWritting(transcript));
                 dispatch(storyActions.addStoryPlayData({story: resp.data}));
                 dispatch(storyActions.updateStoryPlayData(resp2.data));
                 dispatch(storyActions.setIsWritting(false));
@@ -166,6 +164,7 @@ function Main() {
             return  <Story
                         showPathPage={showPathPage}
                         storyText={storyText}
+                        user_writing={user_writing}
                     ></Story>;
         }else if(current_task === "OPTIONS"){
             return  <Game 
@@ -188,7 +187,7 @@ function Main() {
 
 
             {/* some hidden page elements */}
-            <AIMentor isActivate={isActivate} handleClickMentorBubble={handleClickMentorBubble} message={message} showMessage={showMessage}  handleUserClickSuggestions={handleUserClickSuggestions}></AIMentor>
+            <AIMentor handleClickMentorBubble={handleClickMentorBubble} message={message} showMessage={showMessage}  handleUserClickSuggestions={handleUserClickSuggestions}></AIMentor>
 
             <button className="btn absolute top-4 right-4" style={{backgroundColor: "#a694ee"}} onClick={() => navigate("/")}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">

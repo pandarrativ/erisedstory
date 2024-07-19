@@ -43,6 +43,12 @@
     text-align: center;
 }
 
+.selected-word-true {
+    font-weight: 900;
+    color: #370068;
+    text-align: center;
+}
+
 .agent-bubble{
 
     position: fixed;

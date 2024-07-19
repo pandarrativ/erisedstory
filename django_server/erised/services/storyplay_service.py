@@ -64,7 +64,7 @@ def create_branch_options(learning_goal, story, send_prompt):
 
 def continue_option(story, branch_option, user_story, learning_goal, send_prompt):
     messages = [
-         {"role": "user", "content": """The user is now going to continue writing a story. This is the original story content: {{{story}}}. He pick a story direction as: {{{branch_option}}}. This is the user's continuation of the story: {{{user_story}}}. Please refine user's continuation and generate the next story plot in 100 words. The continuation story should focus on the learning goal of: {learning_goal}. Return your response in the following JSON format, with each key double-quoted: {{"story":<STRING>}}.""".format(story=story, branch_option=branch_option, user_story=user_story, learning_goal=learning_goal)},
+         {"role": "user", "content": """The user is now going to continue writing a story. This is the original story content: {{{story}}}. He pick a story direction as: {{{branch_option}}}. This is the user's writting for continuing the story: {{{user_story}}}. Please continue on user's writting and generate the next story plot in 100 words. The continuation story should focus on the learning goal of: {learning_goal}. Return your response in the following JSON format, with each key double-quoted: {{"story":<STRING>}}.""".format(story=story, branch_option=branch_option, user_story=user_story, learning_goal=learning_goal)},
     ]  
     resp = send_prompt(messages)
     

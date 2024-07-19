@@ -1,8 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Trait.css"
-import genre_bg from '../../assets/imgs/Genre_bg.png'
-import Arrow from '../../assets/imgs/Arrow.png'
 import Bubble from "../../assets/imgs/bubble_personality.png";
 import Panel from "../../assets/imgs/bg-login.png";
 import Mentor from "../../assets/imgs/Mentor_select.svg";
@@ -31,8 +29,6 @@ function Genre() {
             return;
         }
 
-        // temporily commented it
-        // dispatch(storyActions.initStoryPlay());
         axios.post(storyRouter,{
             TASK: "NEW_STORY",
             learning_goal: learning_goal,

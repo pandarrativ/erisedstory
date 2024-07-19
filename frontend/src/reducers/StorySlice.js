@@ -9,6 +9,7 @@ export const storySlice = createSlice({
         personality_trait:undefined,
         personality_description:undefined, 
         is_writting: false,
+        user_writing: "",
         life_story:undefined,
         story_id:undefined,
         pages:0,
@@ -55,6 +56,9 @@ export const storySlice = createSlice({
     },
     setLearningGoal: (state, action) => {
       state.learning_goal = action.payload;
+    },
+    setUserWritting: (state, action) => {
+      state.user_writing = action.payload;
     },
     setSageTrait: (state, action) => {
       state.personality_trait = action.payload;

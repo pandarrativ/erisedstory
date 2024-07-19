@@ -22,12 +22,13 @@ function Game({options, handleClickPath, handleSendInput, transcript, setTranscr
             {/* <img src={BGFilled} alt="train windows" className="game-bg"></img> */}
     
             <div className="options">
-                {options.map((item, index) => (
-                    <button key={index} className="word-container" onClick={() => handleClickPath(item)}>
-                    
-                        <div className="word font-semibold">{item}</div>
-                    </button>
-                ))}
+                    {!is_writting && options.map((item, index) => (
+                        <button key={index} className="word-container" onClick={() => handleClickPath(item)}>
+                        
+                            <div className={`word font-semibold selected-word-${item === selected_option}`}>{item}</div>
+                        </button>
+                    ))}
+                
 
 
                 {is_writting &&

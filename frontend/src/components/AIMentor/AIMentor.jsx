@@ -3,7 +3,7 @@ import ActiveImage from "../../assets/imgs/ai_mentor_activate.png";
 import "./ai-mentor.css"
 
 
-function AIMentor({isActivate,handleClickMentorBubble, showMessage,  message, handleUserClickSuggestions}) {
+function AIMentor({handleClickMentorBubble, showMessage,  message, handleUserClickSuggestions}) {
 
 
     return ( 
