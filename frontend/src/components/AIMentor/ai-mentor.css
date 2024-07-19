@@ -1,0 +1,34 @@
+.ai-mentor{
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+
+}
+
+.ai-mentor-inactive{
+    width: 200px;
+}
+
+.ai-mentor-inactive:hover{
+    cursor: pointer;
+}
+
+.ai-mentor-active{
+    width: 200px;
+    z-index: 3;
+}
+
+.ai-mentor-bubble{
+    width: 70vw;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #8071b0;
+    background-color: #e9e7ff;
+    padding: 2rem;
+    border-radius: 20px;
+
+    position: fixed;
+    bottom: 2%;
+    right: 10%;
+    z-index: 2;
+}

@@ -32,12 +32,13 @@
 
 .story-text {
 
-    color: #F2984A; 
-    font-size: 2em;
+    color: #000232; 
+    font-size: 3em;
+    font-weight: 600;
     /* line-height: 1.6; */
     overflow-y: auto; 
-    padding: 15px;
-    height: 60vh;
+    padding: 1.5rem 2rem;
+    max-height: 75vh;
     text-align: justify;
 }
 

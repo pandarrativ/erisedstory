@@ -4,5 +4,5 @@ from .views import *
 
 urlpatterns = [
     path("story", StoryPlayApiView.as_view()),
-    path("sage-conversation", SageConversationApiView.as_view()),
+    path("ai-mentor", SageTaskApiView.as_view()),
 ]

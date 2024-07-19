@@ -1,0 +1,138 @@
+.genre{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../assets/imgs/Learning_bg_blur.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+}
+.trait-left{
+    width: 50%;
+    height: 100%;
+}
+.trait-right {
+    width: 40%;
+    height: 80%;
+    margin: auto;
+   position: relative;
+   min-width: 720px;
+}
+.trait-right-bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    
+}
+
+
+.trait-bubble {
+    width: 80%;
+    margin: auto auto;
+}
+
+.trait-title{
+
+    width: 100%;
+    
+}
+
+.trait-bubble-content{
+    position: absolute;
+    z-index: 3;
+    color: #8071b0;
+    font-size: 4rem;
+    font-weight: 800;
+    width: 80%;
+    height: 60%;
+    margin: 10% 20%;
+}
+
+.trait-mentor{
+    height: 40%;
+}
+
+.trait-card {
+    background: #fffefe; 
+    border: 2px solid #FB9C47; 
+    border-radius: 25px; 
+    font-size: 3rem; 
+    color: #c37f00; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-wrap: nowrap;
+    min-height: 50px;
+    margin: 20px 0;
+    width: 520px;
+    padding: 0.5rem 2rem;
+    font-weight: 800;
+
+    
+}
+
+.trait-card:hover{
+    border: 2px solid #FB9C47; 
+    background-color: #fccea6;
+}
+
+.selected-trait{
+    background-color: #ffddbf;
+}
+
+.trait-continue-btn{
+    background: #e3e3e3; 
+    border: 4px solid #fa8b2a; 
+    border-radius: 40px; 
+    font-weight: 800;
+    font-size: 3rem; 
+    color: #c37f00; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-wrap: nowrap;
+    min-height: 50px;
+    margin: 20px 0;
+    width: 560px;
+    padding: 1rem 2rem;
+
+}
+.trait-continue-btn:hover{
+    background-color: #fad2af;
+}
+/* 
+.genre-card-title {
+    font-size: 1.25rem; 
+    color: #FB9C47; 
+    text-align: center;
+    flex: 1; 
+}
+
+.genre-card-img {
+    max-width: 55%;
+    flex: none; 
+}
+
+.genre-card4 {
+    background-color: #FB9C47; 
+}
+
+.genre-card4 .genre-card-title {
+    color: #FFFFFF; 
+}
+
+@media (max-width: 768px) {
+
+
+    .genre-cards {
+        width: 100%;
+    }
+
+
+} */

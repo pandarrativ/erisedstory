@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import Welcome from './pages/Welcome/Welcome';
 import Learning from './pages/Learning/Learning';
-import Genre from './pages/Genre/Genre';
+import Genre from './pages/Genre/Trait';
 import Main from './pages/Main/Main';
 
 const ProtectedRoute = ({ isAuthenticated, children }) => {

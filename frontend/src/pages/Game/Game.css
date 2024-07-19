@@ -1,15 +1,28 @@
 .game{
     width: 100%;
     min-height: 100vh;
-    background-image: url('../../assets/imgs/bg-6.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+   
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    /* padding: 0 5% 0 3%; */
 }
+
+.game-bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+.options{
+    width: 90%;
+    height: 100%;
+    margin: 0 3% 0 7%;
+    display: flex;
+    flex-direction: row;
+}
+
 
 .word-container {
     position: relative;
@@ -18,73 +31,66 @@
     margin: 65px;
 }
   
-.word-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 .word {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3em;
+    font-size: 3.5em;
+    font-weight: 800;
     color: #F2984A;
     text-align: center;
 }
 
-.cloud {
-    width: 55%;
-    position: absolute;
-    top: 0%; 
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
+.agent-bubble{
+
+    position: fixed;
+    bottom: 7%;
+    right: 12%;
 }
 
-.game-instructions{
-    position: absolute; 
-    bottom: 5%;
-    left: 48%;
-    transform: translateX(-50%);
-    z-index: 2;
-    text-align: center;
-    width: 80%;
+.agent-bubble img{
+    position: absolute;
+    width: 100%;
+    height: calc(100% + 3rem);
+    z-index: 3;
+
+}
+.agent-bubble span,
+.placeholder{
+    font-size: 3rem;
+    padding: 1.5rem 3rem;
+    color: #8071b0;
+    font-weight: 800;
 }
 
-.game-instructions p{
-    color: #F2984A;
-    font-size: 1.5em;
-    line-height: 1.6;
-    margin: 20px;
-}
-  
-.dialog-bg {
+.placeholder{
     position: absolute;
-    width: 80%; 
-    height: auto;
-    left: 15%;
-    bottom: 0;
-    z-index: -1;
+    z-index: 4;
 }
-  
-@keyframes up-down {
-    80%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
+
+
+
+
 
 .game-respond {
     position: absolute; 
-    bottom: 0%; 
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    width: 70%; 
-    background: url('../../assets/imgs/Learning_goal_bg.png');
-    background-size: cover; 
+    width: 70vw; 
+    height: 70vh;
+    background-image: linear-gradient(90deg, #ad8de2, #e9e7ff, #ad8de2);
+    /* background: url('../../assets/imgs/Learning_goal_bg.png'); */
+
     padding: 20px; 
     border-radius: 20px;
+}
+.conversation-title{
+    font-size: 3rem;
+    font-weight: 800;
 }
   
 .game-respond p {
@@ -95,26 +101,17 @@
 
 .game-respond .game-textarea {
     width: calc(100% - 40px);
-    height: 200px;
+    height: calc(100% - 10rem);
+    
     margin: 0 auto;
     padding: 10px;
     border: 2px solid #D3D3D3;
     border-radius: 10px; 
-    font-size: 1.75em; 
+    font-size: 3em; 
     box-sizing: border-box;
 }
 
-.game-textarea{
-    width: calc(80% - 80px);
-    height: 100px;
-    margin: 0 auto;
-    padding: 10px;
-    border: 2px solid red;
-    border-radius: 10px; 
-    font-size: 1em; 
-    box-sizing: border-box;
-}
-
+/* 
 .game-respond button {
     background-color: #5D3FD3;
     color: white; 
@@ -126,7 +123,7 @@
     cursor: pointer; 
     font-size: 1em;
     transition: background-color 0.3s ease;
-}
+} */
 
 
 .game-respond .game-arrow {
@@ -134,8 +131,7 @@
     height: auto; 
     position: absolute; 
     left: 85%; 
-    bottom: 40%;
+    bottom: 0;
     background-color: transparent;
 }
   
-
