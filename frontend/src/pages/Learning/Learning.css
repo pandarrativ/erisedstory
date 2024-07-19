@@ -13,25 +13,43 @@
     z-index: 1;
 }
 
-.learning-title {
+.learning-bubble {
     position: absolute;
     width: auto; 
-    max-width: 40%; 
+    width: 35%; 
     align-self: flex-start;
-    margin-top: 2vh;
-    margin-bottom: 2vh; 
+    margin-top: -2%;
+    margin-left: 5%;
     z-index: 2;
 }
 
+.learning-title{
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+
+.bubble-content{
+    position: absolute;
+    z-index: 3;
+    color: #8071b0;
+    font-size: 4.5rem;
+    font-weight: 800;
+    width: 80%;
+    height: 60%;
+    margin: 10% 20%;
+}
+
+
 .learning-goal {
     position: absolute;
-    bottom: 0;
+    bottom: -3%;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
     background: url('../../assets/imgs/Learning_goal_bg.png'); 
-    background-size: cover;
+    background-size:auto;
     background-position: center center;
     background-attachment: fixed;
     min-width: 50%;
@@ -61,8 +79,8 @@
     background: #F1F1F1; 
     border: 2px solid #FB9C47; 
     border-radius: 25px; 
-    padding: 1rem 2rem; 
-    font-size: 2rem; 
+    padding: 1.5rem 2rem; 
+    font-size: 3rem; 
     color: #c37f00; 
     display: flex;
     align-items: center;
@@ -85,6 +103,11 @@
 .learning-arrow{
     width: 25%;
     align-self: center;
+    margin-top: -5%;
+}
+
+.learning-arrow:hover{
+    cursor: pointer;
 }
 
 @keyframes fadeIn {

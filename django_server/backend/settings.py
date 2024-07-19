@@ -24,7 +24,6 @@ INSTALLED_APPS = [
     'ai_models',  # for API request with AI models, shared by all apps
 
     # Apps
-    'pdtalk',
     'erised',
 ]
 

@@ -1,5 +1,5 @@
 from common_utils.utils import parse_to_json, extract_and_parse_json
-from ai_models.openai_api import send_messages
+
 
 
 def create_persona(selected_trait, send_prompt):

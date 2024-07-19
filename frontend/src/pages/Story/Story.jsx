@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./story.css";
 
 
-function Story({showPathPage, storyText}) {
+function Story({showPathPage, storyText, user_writing}) {
 
     /* Params
     storyText: String  content to be shown
@@ -10,42 +10,7 @@ function Story({showPathPage, storyText}) {
     
     */
 
-
-
-    useEffect(() => {
-        const sentences = storyText.match(/[^\.!\?]+[\.!\?]+/g) || [];
-        
-        const readSentence = (sentence, isLast) => {
-
-            const utterance = new SpeechSynthesisUtterance(sentence);
-        
-            if (isLast) {
-                utterance.onend = () => {
-
-                    setTimeout(() => {
-                        showPathPage();
-                    }, 500);
-                };
-            }
-            
-            window.speechSynthesis.speak(utterance);
-        };
-
-        sentences.forEach((sentence, index) => {
-            const isLast = index === sentences.length - 1;
-            readSentence(sentence, isLast);
-        });
-
-
-        return () => {
-            window.speechSynthesis.cancel();
-        };
-    }, []);
-
-    const finishTalking = () => {
-        showPathPage();
-    }
-
+  
 
     return(
         <div className="story">
@@ -53,7 +18,10 @@ function Story({showPathPage, storyText}) {
             <div className="story-contain">
 
                 <div className="story-box">
-                    <button onClick={finishTalking}><div className="story-text">{storyText}</div></button>
+                    <button onClick={showPathPage}>
+                        {user_writing && <div className="story-text-user">{user_writing}</div>}
+                        <div className="story-text">{storyText}</div>
+                    </button>
 
                 </div>
             </div>
